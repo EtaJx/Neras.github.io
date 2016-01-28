@@ -24,7 +24,7 @@ Git、Node的使用在这里就不赘述了。如何使用GitHub Pages，可以�
 
 #### Hexo的使用
 {% blockquote HEXO http://hexo.io/zh-cn/docs hexo %}
-关于hexo，一开始接触的时候会觉得茫然一片，不知道干啥，网上也有教程，但是搜到大部分教程已经过时，现在的hexo版本已经集成了hexo-server，不用再自己去安装，具体可以参考官方网站，文档已经写得很清楚了。
+关于hexo，一开始接触的时候会觉得茫然一片，不知道干啥，网上也有教程，但是搜到大部分教程已经过时，在package.json里面已经写好了依赖包，npm install的时候会安装好所需要的包，不用再单独去安装一次hexo server了，具体可以参考官方网站，文档已经写得很清楚了。
 {% endblockquote %}
 
 
