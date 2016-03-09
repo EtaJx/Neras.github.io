@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="my life," />
+  <meta name="keywords" content="smarty," />
 
 
 
@@ -57,16 +57,28 @@
 
 
 
-<meta name="description" content="“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”">
+<meta name="description" content="{section}{sectionelse}可以遍历连续数字索引的数组，然而foreach可以做到{section}的任何功能，而且有更简单和更清晰的语法，而且{section}不能用于循环关联数组（一脸嫌弃，那要你何用= =）。(还没写过smarty代码，哈哈)用assign赋值一个数组
+
+&amp;lt;?php 
+    $data = array(1000,1001,1002);
+    $sma">
 <meta property="og:type" content="article">
-<meta property="og:title" content="I am here">
-<meta property="og:url" content="http://neras.github.io/2016/here/index.html">
+<meta property="og:title" content="smarty的上手之路（持续更新）">
+<meta property="og:url" content="http://neras.github.io/2016/smarty的上手之路（持续更新）/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”">
-<meta property="og:updated_time" content="2016-01-28T02:31:08.136Z">
+<meta property="og:description" content="{section}{sectionelse}可以遍历连续数字索引的数组，然而foreach可以做到{section}的任何功能，而且有更简单和更清晰的语法，而且{section}不能用于循环关联数组（一脸嫌弃，那要你何用= =）。(还没写过smarty代码，哈哈)用assign赋值一个数组
+
+&amp;lt;?php 
+    $data = array(1000,1001,1002);
+    $sma">
+<meta property="og:updated_time" content="2016-03-09T09:22:25.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="I am here">
-<meta name="twitter:description" content="“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”">
+<meta name="twitter:title" content="smarty的上手之路（持续更新）">
+<meta name="twitter:description" content="{section}{sectionelse}可以遍历连续数字索引的数组，然而foreach可以做到{section}的任何功能，而且有更简单和更清晰的语法，而且{section}不能用于循环关联数组（一脸嫌弃，那要你何用= =）。(还没写过smarty代码，哈哈)用assign赋值一个数组
+
+&amp;lt;?php 
+    $data = array(1000,1001,1002);
+    $sma">
 
 
 
@@ -84,7 +96,7 @@
   };
 </script>
 
-  <title> I am here | Hing </title>
+  <title> smarty的上手之路（持续更新） | Hing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -195,7 +207,7 @@
             
             
               
-                I am here
+                smarty的上手之路（持续更新）
               
             
           </h1>
@@ -207,8 +219,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-28T10:31:08+08:00" content="2016-01-28">
-              2016-01-28
+            <time itemprop="dateCreated" datetime="2016-03-09T16:01:25+08:00" content="2016-03-09">
+              2016-03-09
             </time>
           </span>
 
@@ -218,8 +230,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/here/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/here/" itemprop="commentsCount"></span>
+                <a href="/2016/smarty的上手之路（持续更新）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/smarty的上手之路（持续更新）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -240,7 +252,27 @@
       
 
       
-        <p>“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”</p>
+        <blockquote>
+<p>{section}{sectionelse}可以遍历连续数字索引的数组，然而foreach可以做到{section}的任何功能，而且有更简单和更清晰的语法，而且{section}不能用于循环关联数组（一脸嫌弃，那要你何用= =）。<br>(还没写过smarty代码，哈哈)用assign赋值一个数组</p>
+</blockquote>
+<p><code>&lt;?php 
+    $data = array(1000,1001,1002);
+    $smarty-&gt;assign(&#39;custid&#39;,$data);
+?&gt;</code></p>
+<p>然后用模板输出上面的数组</p>
+<p>`&lt;?php<br>    {section name=customer loop=$custid}<br>    {section customer $custid}{<em> short-hand</em>}<br>        id:{$custid[customer]}<br><br>    {/section&gt;{<em>记得结束标签 = =是这样说吗</em>}</p>
+<pre><code>{*array reversed打印*}
+{section name=foo loop=$custid step=-1}
+    {$custid[foo]}&lt;br /&gt;
+&lt;/section&gt;
+</code></pre><p>`</p>
+<blockquote>
+<p>这种是类似for循环了吗（ = =看着和执行起来很像）<br><code>&lt;?php
+    {section name=foo start=10 loop=20 step=2}
+        {$smarty.section.foo.index}
+    &lt;/section&gt;</code></p>
+<p>就到这里吧。。反正我不常用这个，然后小结一下。section中loop值仅制定循环的次数，还可以任意深度嵌套（处理多维数组）。然后这个会用到，在循环中的.index是当前的数组的索引值，在foreach中也是如此，从0开始，我去，还有<code>.index_prev</code>，上一次循环的索引值，在第一次循环的时候为-1，所以对应还有<code>.index_next</code>，下一次循环的索引值，最后一次会比当前索引加1。还有一个和<code>.index</code>类似的，iteration，从0开始。还有一个total是section的总数。具体还比较多，可以参照 <a href="http://www.smarty.net/docs/zh_CN/language.function.section.tpl" target="_blank" rel="external">http://www.smarty.net/docs/zh_CN/language.function.section.tpl</a></p>
+</blockquote>
 
       
     </div>
@@ -249,7 +281,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/my-life/" rel="tag">#my life</a>
+            <a href="/tags/smarty/" rel="tag">#smarty</a>
           
         </div>
       
@@ -258,17 +290,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/hexo/" rel="next" title="使用hexo与GitHub Pages搭建自己的博客">
-                <i class="fa fa-chevron-left"></i> 使用hexo与GitHub Pages搭建自己的博客
+              <a href="/2016/weekly/" rel="next" title="周报君">
+                <i class="fa fa-chevron-left"></i> 周报君
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/weekly/" rel="prev" title="周报君">
-                周报君 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -283,10 +311,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/here/"
-     data-title="I am here"
+        <div class="ds-share flat" data-thread-key="2016/smarty的上手之路（持续更新）/"
+     data-title="smarty的上手之路（持续更新）"
      data-content=""
-     data-url="http://neras.github.io/2016/here/">
+     data-url="http://neras.github.io/2016/smarty的上手之路（持续更新）/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -313,8 +341,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/here/"
-           data-title="I am here" data-url="http://neras.github.io/2016/here/">
+      <div class="ds-thread" data-thread-key="2016/smarty的上手之路（持续更新）/"
+           data-title="smarty的上手之路（持续更新）" data-url="http://neras.github.io/2016/smarty的上手之路（持续更新）/">
       </div>
     
   </div>

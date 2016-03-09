@@ -1528,7 +1528,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e0ff9c;
+  background: #61c899;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2057,4 +2057,7 @@ pre .javascript .function {
   .use-motion .site-search form {
     top: 0 !important;
   }
+}
+.custom-logo-site-title img {
+  float: right;
 }
