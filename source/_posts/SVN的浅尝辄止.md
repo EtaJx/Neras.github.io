@@ -25,4 +25,5 @@ categories:
 * 在merge的时候也可以指定分支上的哪些变更可以合并到Trunk中，命令如下`svn merge http://example.com/repos/myproject/branches/releaseForAug -r150:HEAD`表示将分支的版本从150到当前版本的所有搞懂合并到trunk中
 
 * 查看当前branch和trunk的合并情况，可以使用 `svn mergeinfo branchUrl` 来查看merge情况
+* 目前就这些吧
 
