@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="my life," />
+  <meta name="keywords" content="SVN," />
 
 
 
@@ -57,16 +57,31 @@
 
 
 
-<meta name="description" content="“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”">
+<meta name="description" content="SVN的创建以及合并分支（windows命令行(ಥ _ ಥ)）
+合并总是在工作副本中进行的。如果想要合并修改到分支，必须检出该分支的工作副本，并且从这个工作副本使用TortoiseSVN-merge来调用合并导向
+
+在没有修改的工作副本上执行合并是一个好想法。如果在工作副本上做了修改，先提交。如果合并没有如期的执行，可能需要测小这些修改，用还原会丢弃包含在执行合并之前的所有修改
+
+分支的创建Svn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="I am here">
-<meta property="og:url" content="http://neras.github.io/2016/here/index.html">
+<meta property="og:title" content="SVN的浅尝辄止">
+<meta property="og:url" content="http://neras.github.io/2016/03/15/SVN的浅尝辄止/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”">
-<meta property="og:updated_time" content="2016-02-17T14:27:46.044Z">
+<meta property="og:description" content="SVN的创建以及合并分支（windows命令行(ಥ _ ಥ)）
+合并总是在工作副本中进行的。如果想要合并修改到分支，必须检出该分支的工作副本，并且从这个工作副本使用TortoiseSVN-merge来调用合并导向
+
+在没有修改的工作副本上执行合并是一个好想法。如果在工作副本上做了修改，先提交。如果合并没有如期的执行，可能需要测小这些修改，用还原会丢弃包含在执行合并之前的所有修改
+
+分支的创建Svn">
+<meta property="og:updated_time" content="2016-08-04T16:42:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="I am here">
-<meta name="twitter:description" content="“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”">
+<meta name="twitter:title" content="SVN的浅尝辄止">
+<meta name="twitter:description" content="SVN的创建以及合并分支（windows命令行(ಥ _ ಥ)）
+合并总是在工作副本中进行的。如果想要合并修改到分支，必须检出该分支的工作副本，并且从这个工作副本使用TortoiseSVN-merge来调用合并导向
+
+在没有修改的工作副本上执行合并是一个好想法。如果在工作副本上做了修改，先提交。如果合并没有如期的执行，可能需要测小这些修改，用还原会丢弃包含在执行合并之前的所有修改
+
+分支的创建Svn">
 
 
 
@@ -84,7 +99,7 @@
   };
 </script>
 
-  <title> I am here | Hing </title>
+  <title> SVN的浅尝辄止 | Hing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -195,7 +210,7 @@
             
             
               
-                I am here
+                SVN的浅尝辄止
               
             
           </h1>
@@ -207,19 +222,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-17T22:27:46+08:00" content="2016-02-17">
-              2016-02-17
+            <time itemprop="dateCreated" datetime="2016-03-15T21:43:58+08:00" content="2016-03-15">
+              2016-03-15
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SVN/" itemprop="url" rel="index">
+                    <span itemprop="name">SVN</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/here/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/here/" itemprop="commentsCount"></span>
+                <a href="/2016/03/15/SVN的浅尝辄止/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/SVN的浅尝辄止/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -240,7 +274,28 @@
       
 
       
-        <p>“Go home or stand up.It’s your fucking choice.Do you still remember the reason why you are here?”</p>
+        <h4 id="SVN的创建以及合并分支（windows命令行-ಥ-ಥ-）"><a href="#SVN的创建以及合并分支（windows命令行-ಥ-ಥ-）" class="headerlink" title="SVN的创建以及合并分支（windows命令行(ಥ _ ಥ)）"></a>SVN的创建以及合并分支（windows命令行(ಥ _ ಥ)）</h4><ul>
+<li><p>合并总是在工作副本中进行的。如果想要合并修改到分支，必须检出该分支的工作副本，并且从这个工作副本使用TortoiseSVN-merge来调用合并导向</p>
+</li>
+<li><p>在没有修改的工作副本上执行合并是一个好想法。如果在工作副本上做了修改，先提交。如果合并没有如期的执行，可能需要测小这些修改，用还原会丢弃包含在执行合并之前的所有修改</p>
+</li>
+<li><p>分支的创建<br><code>Svn copy http://example.com/repos/myproject/trunk  http://example.com/repos/myproject/branches/releaseForAug -m &#39;create branch for release on now&#39;</code>为myproject创建了一个分支叫做releaseForAug，使用-m来加入描述信息，之后可以通过<code>svn checkout http://example.com/repos/myproject/releaseForAug</code>来迁出你的branche源文件。在上面进行修改和提交</p>
+</li>
+<li><p>合并</p>
+</li>
+</ul>
+<ol>
+<li>保证当前branch分支是clean的，即使用svn status看不到任何的本地修改</li>
+<li>命令行下切换到Trunk目录中，使用<code>Svn merge http://example.com/repos/myproject/branches/releaseForAug</code>来讲Branch分支上的改动merge回Trunk下</li>
+<li>如果出现merge冲突则进行解决，然后执行<code>Svn ci -m &#39;description&#39;来提交变动</code></li>
+</ol>
+<ul>
+<li><p>在merge的时候也可以指定分支上的哪些变更可以合并到Trunk中，命令如下<code>svn merge http://example.com/repos/myproject/branches/releaseForAug -r150:HEAD</code>表示将分支的版本从150到当前版本的所有搞懂合并到trunk中</p>
+</li>
+<li><p>查看当前branch和trunk的合并情况，可以使用 <code>svn mergeinfo branchUrl</code> 来查看merge情况</p>
+</li>
+<li>目前就这些吧</li>
+</ul>
 
       
     </div>
@@ -249,7 +304,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/my-life/" rel="tag">#my life</a>
+            <a href="/tags/SVN/" rel="tag">#SVN</a>
           
         </div>
       
@@ -258,16 +313,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/weekly/" rel="next" title="周报君">
-                <i class="fa fa-chevron-left"></i> 周报君
+              <a href="/2016/03/10/smarty/" rel="next" title="smarty">
+                <i class="fa fa-chevron-left"></i> smarty
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/studyPlan/" rel="prev" title="Study List（打满了鸡血）">
-                Study List（打满了鸡血） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/05/here/" rel="prev" title="I am here">
+                I am here <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -283,10 +338,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/here/"
-     data-title="I am here"
+        <div class="ds-share flat" data-thread-key="2016/03/15/SVN的浅尝辄止/"
+     data-title="SVN的浅尝辄止"
      data-content=""
-     data-url="http://neras.github.io/2016/here/">
+     data-url="http://neras.github.io/2016/03/15/SVN的浅尝辄止/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -313,8 +368,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/here/"
-           data-title="I am here" data-url="http://neras.github.io/2016/here/">
+      <div class="ds-thread" data-thread-key="2016/03/15/SVN的浅尝辄止/"
+           data-title="SVN的浅尝辄止" data-url="http://neras.github.io/2016/03/15/SVN的浅尝辄止/">
       </div>
     
   </div>
@@ -359,14 +414,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
@@ -423,7 +478,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN的创建以及合并分支（windows命令行-ಥ-ಥ-）"><span class="nav-number">1.</span> <span class="nav-text">SVN的创建以及合并分支（windows命令行(ಥ _ ಥ)）</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -497,6 +552,8 @@
   <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/my.js?v=0.5.0"></script>
 
 
 
