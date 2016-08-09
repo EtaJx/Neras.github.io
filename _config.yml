@@ -71,4 +71,4 @@ deploy:
   type: git
   repo: git@github.com:Neras/Neras.github.io.git
   branch: master
-  message: 'add new article'
+  message: '有趣的事情发生了'
