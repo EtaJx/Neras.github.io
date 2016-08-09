@@ -79,7 +79,6 @@ social_icons:
   # Icon Mappings
   GitHub: github
   Twitter: twitter
-  Weibo: weibo
 
 social:
  GitHub: https://github.com/neras
@@ -107,8 +106,8 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
