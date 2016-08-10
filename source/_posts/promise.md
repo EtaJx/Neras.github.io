@@ -20,7 +20,7 @@ Promise对象在不久的将来可能会是一个代理完整异步操作的值.
 而在Promise这是把上述的操作规范化，按照统一的接口来进行编写。下面是一个简单的例子：
 ```javascript
     var promise = new Promise(function(resolve,reject){
-        //in here,you can transfer the callback function resolve & reject to do what you want to do 
+        //here,you can transfer the callback function resolve & reject to do what you want to do 
     });
     promise().then(function(value){
         console.log(value); 
@@ -32,7 +32,7 @@ Promise对象在不久的将来可能会是一个代理完整异步操作的值.
 在上面简单的栗子中，then()中的两个回调函数分别用来处理当请求完成是成功和失败的操作，其中上面的代码，在处理失败的使用可以用catch()来操作，代码如下：
 ```javascript
     var promise = new Promise(function(resolve,reject){
-        //in here,you can transfer the callback function resolve & reject to do what you want to do
+        //here,you can transfer the callback function resolve & reject to do what you want to do
     });
     promise().then(function(value){
         console.log(value);
@@ -40,10 +40,10 @@ Promise对象在不久的将来可能会是一个代理完整异步操作的值.
         console.log(error);
     });
 ```
-catc()就是专门用来处理操作失败时候的函数。
+catch()就是专门用来处理操作失败时候的函数。
 
 #### Promise的三种状态
-在Promise中除了resolve和reject两种调用，及除了fullFilles和rejected两种状态外，还存在一个pending的状态，改状态表示在Promise对象刚被创建初始化后的初始化状态或者其他状态，只要Promise的状态是fillFulled或者rejected，那么就不会返回到pending状态。
+在Promise中除了resolve和reject两种调用，即除了fullFilled和rejected两种状态外，还存在一个pending的状态，改状态表示在Promise对象刚被创建初始化后的初始化状态或者其他状态，只要Promise的状态是fullFilled或者rejected，那么就不会返回到pending状态。
 
 #### Promise的简单编写
 
