@@ -14,9 +14,10 @@
 {% endblock %}
 
 {% block content %}
-
+{{ page }}
   <div id="posts" class="posts-expand">
     {# tagcloud page support #}
+    {{ page.type }}
     {% if page.type === "tags" %}
       <div class="tag-cloud">
         <div class="tag-cloud-title">

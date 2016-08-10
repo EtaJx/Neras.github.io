@@ -10,7 +10,6 @@
 
 {% block content %}
   <section id="posts" class="posts-expand">
-
     {% set posts_normal = page.posts %}
 
     {# Compatible with Hexo 2.* #}

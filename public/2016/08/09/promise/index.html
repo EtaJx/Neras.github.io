@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="promise," />
@@ -50,7 +50,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.1" />
 
 
 
@@ -71,7 +71,7 @@ Proxy for a value that may be known in the future after an asynchronous operatio
 Proxy for a value that may be known in the future after an asynchronous operation completes
 
 在JavaScript的异步处理中，以jQuery为例，通过调用回调函数来处理请求返回的">
-<meta property="og:updated_time" content="2016-08-09T16:20:12.000Z">
+<meta property="og:updated_time" content="2016-08-10T02:11:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise的初体验">
 <meta name="twitter:description" content="Promise是什么？Promise对象在不久的将来可能会是一个代理完整异步操作的值……好吧，英语确实不是很好，原话就是：
@@ -90,8 +90,8 @@ Proxy for a value that may be known in the future after an asynchronous operatio
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
-      author: '博主'
+      userId: 6226523689161065000,
+      author: '骚气的博主'
     }
   };
 </script>
@@ -154,6 +154,16 @@ Proxy for a value that may be known in the future after an asynchronous operatio
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -276,10 +286,10 @@ Proxy for a value that may be known in the future after an asynchronous operatio
 <p>Proxy for a value that may be known in the future after an asynchronous operation completes</p>
 </blockquote>
 <p>在JavaScript的异步处理中，以jQuery为例，通过调用回调函数来处理请求返回的数据或者失败的请求，简单的如下的代码(jQuery):<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">'url'</span>,&#123;data:data&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">json</span>)</span>&#123;</div><div class="line">    <span class="comment">//the things you'll do</span></div><div class="line">&#125;,<span class="string">'JSON'</span>);</div></pre></td></tr></table></figure></p>
-<p>而在Promise这是把上述的操作规范化，按照统一的接口来进行编写。下面是一个简单的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//in here,you can transfer the callback function resolve &amp; reject to do what you want to do </span></div><div class="line">&#125;);</div><div class="line">promise().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value); </div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>在上面简单的栗子中，then()中的两个回调函数分别用来处理当请求完成是成功和失败的操作，其中上面的代码，在处理失败的使用可以用catch()来操作，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//in here,you can transfer the callback function resolve &amp; reject to do what you want to do</span></div><div class="line">&#125;);</div><div class="line">promise().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>catc()就是专门用来处理操作失败时候的函数。</p>
-<h4 id="Promise的三种状态"><a href="#Promise的三种状态" class="headerlink" title="Promise的三种状态"></a>Promise的三种状态</h4><p>在Promise中除了resolve和reject两种调用，及除了fullFilles和rejected两种状态外，还存在一个pending的状态，改状态表示在Promise对象刚被创建初始化后的初始化状态或者其他状态，只要Promise的状态是fillFulled或者rejected，那么就不会返回到pending状态。</p>
+<p>而在Promise这是把上述的操作规范化，按照统一的接口来进行编写。下面是一个简单的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//here,you can transfer the callback function resolve &amp; reject to do what you want to do </span></div><div class="line">&#125;);</div><div class="line">promise().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value); </div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>在上面简单的栗子中，then()中的两个回调函数分别用来处理当请求完成是成功和失败的操作，其中上面的代码，在处理失败的使用可以用catch()来操作，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//here,you can transfer the callback function resolve &amp; reject to do what you want to do</span></div><div class="line">&#125;);</div><div class="line">promise().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>catch()就是专门用来处理操作失败时候的函数。</p>
+<h4 id="Promise的三种状态"><a href="#Promise的三种状态" class="headerlink" title="Promise的三种状态"></a>Promise的三种状态</h4><p>在Promise中除了resolve和reject两种调用，即除了fullFilled和rejected两种状态外，还存在一个pending的状态，改状态表示在Promise对象刚被创建初始化后的初始化状态或者其他状态，只要Promise的状态是fullFilled或者rejected，那么就不会返回到pending状态。</p>
 <h4 id="Promise的简单编写"><a href="#Promise的简单编写" class="headerlink" title="Promise的简单编写"></a>Promise的简单编写</h4><p>编写Promise的过程简单可以描述如下</p>
 <ol>
 <li>创建Promise(fn)对象</li>
@@ -328,25 +338,6 @@ Proxy for a value that may be known in the future after an asynchronous operatio
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/08/09/promise/"
-     data-title="Promise的初体验"
-     data-content=""
-     data-url="http://neras.github.io/2016/08/09/promise/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -419,7 +410,7 @@ Proxy for a value that may be known in the future after an asynchronous operatio
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
@@ -454,6 +445,13 @@ Proxy for a value that may be known in the future after an asynchronous operatio
         
 
         <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">基友链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://m78star.com/" target="_blank">M78SNAIL</a>
+              </span>
+            
           
         </div>
 
@@ -496,9 +494,6 @@ Proxy for a value that may be known in the future after an asynchronous operatio
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hing</span>
-</div>
-<div class="friend-link">
-  <span>好基友链接：</span><a href="http://m78star.com/">M78SNAIL</a>
 </div>
 
 <div class="powered-by">
@@ -543,20 +538,20 @@ Proxy for a value that may be known in the future after an asynchronous operatio
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.1"></script>
 
-  <script type="text/javascript" src="/js/src/my.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/my.js?v=0.5.1"></script>
 
 
-
-  
-  
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.1"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -720,7 +715,7 @@ Proxy for a value that may be known in the future after an asynchronous operatio
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.1"></script>
 
 
 
@@ -744,6 +739,9 @@ Proxy for a value that may be known in the future after an asynchronous operatio
   </script>
 
   
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
     
   
 

@@ -28,9 +28,9 @@ rss:
 menu:
   home: /
   #categories: /categories
-  #about: /about
+  about: /about
   archives: /archives
-  # tags: /tags
+  #tags: /tags
   #commonweal: /404.html
 
 
@@ -45,7 +45,7 @@ menu_icons:
   home: home
   about: user
   categories: th
-  # tags: tags
+  tags: tags
   archives: archive
   commonweal: heartbeat
 
@@ -178,7 +178,7 @@ duoshuo_shortname: Hing
 #jiathis:
 
 # Share
-duoshuo_share: true
+duoshuo_share: false
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -194,9 +194,9 @@ duoshuo_share: true
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
   ua_enable: true
-  admin_enable: false
-  user_id: 0
-  #admin_nickname: ROOT
+  admin_enable: true
+  user_id: 6226523689161065000
+  admin_nickname: 骚气的博主
 
 
 # Facebook SDK Support.
@@ -246,4 +246,10 @@ js: js
 images: images
 
 # Theme version
-version: 0.5.0
+version: 0.5.1
+
+
+
+links_title: 基友链接
+links:
+  M78SNAIL: http://m78star.com/

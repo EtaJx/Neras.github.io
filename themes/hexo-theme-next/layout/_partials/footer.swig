@@ -7,9 +7,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
 </div>
-<div class="friend-link">
-  <span>好基友链接：</span><a href="http://m78star.com/">M78SNAIL</a>
-</div>
 
 <div class="powered-by">
   {{ __('footer.powered', '<a class="theme-link" href="http://hexo.io">Hexo</a>') }}
