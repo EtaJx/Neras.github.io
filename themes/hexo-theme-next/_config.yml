@@ -178,7 +178,7 @@ duoshuo_shortname: Hing
 #jiathis:
 
 # Share
-duoshuo_share: false
+duoshuo_share: true
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
