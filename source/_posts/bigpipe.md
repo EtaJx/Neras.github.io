@@ -19,11 +19,11 @@ In the traditional model, the life cycle of a user request is the following:
 在传统的模式中，一个用户请求的生命周期如下：
 
 - 浏览器向服务器发送一个请求
-- 服务器解析请求，从数据层拉去数据然后构建HTML文档，然后在响应中返回这个文档
+- 服务器解析请求，从数据层拉取数据然后构建HTML文档，然后在响应中返回这个文档
 - HTTP响应通过互联网向浏览器传输。
 - 浏览器解析从服务器得到的响应，构建一个描述HTML文档的DOM树，然后从文档中的引用中下载css和JavaScript资源
 - 下载完css后，浏览器解析css并应用到DOM树上
-- 下载完成JavaScript后，留恋其解析JavaScript并执行它们
+- 下载完成JavaScript后，浏览器解析JavaScript并执行它们
 
 Just as a [pipelining microprocessor](https://en.wikipedia.org/wiki/Instruction_pipelining) divides an instruction’s life cycle into multiple stages (such as “instruction fetch”, “instruction decode”, “execution”, “register write back” etc.), BigPipe breaks the page generation process into several stages:
 
@@ -36,7 +36,7 @@ DOM tree construction and CSS styling: browser constructs DOM tree of the docume
 JavaScript downloading: browser downloads JavaScript resources referenced by the page.
 JavaScript execution: browser executes JavaScript code of the page.
 
-就像一个[流水线微处理器](https://en.wikipedia.org/wiki/Instruction_pipelining)一样，讲一个指令的生命周期分成几个状态（比如指令的fetch，指令的decode，执行，注册会写（register write back）等等），bigpipe就将页面的生成过程分成几个状态：
+就像一个[流水线微处理器](https://en.wikipedia.org/wiki/Instruction_pipelining)一样，将一个指令的生命周期分成几个状态（比如指令的fetch，指令的decode，执行，注册回写（register write back）等等），bigpipe就将页面的生成过程分成几个状态：
 
 - Request parsing：服务器解析并全面检查HTTP请求
 - Data fetching: 服务器从数据层抓取数据

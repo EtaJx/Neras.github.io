@@ -69,7 +69,7 @@ Web server parses the request, pulls data from storage tier then f">
 
 Browser sends an HTTP request to web server.
 Web server parses the request, pulls data from storage tier then f">
-<meta property="og:updated_time" content="2017-04-01T08:00:06.000Z">
+<meta property="og:updated_time" content="2017-04-01T08:02:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bigpipe">
 <meta name="twitter:description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:
@@ -271,15 +271,15 @@ Web server parses the request, pulls data from storage tier then f">
 <p>在传统的模式中，一个用户请求的生命周期如下：</p>
 <ul>
 <li>浏览器向服务器发送一个请求</li>
-<li>服务器解析请求，从数据层拉去数据然后构建HTML文档，然后在响应中返回这个文档</li>
+<li>服务器解析请求，从数据层拉取数据然后构建HTML文档，然后在响应中返回这个文档</li>
 <li>HTTP响应通过互联网向浏览器传输。</li>
 <li>浏览器解析从服务器得到的响应，构建一个描述HTML文档的DOM树，然后从文档中的引用中下载css和JavaScript资源</li>
 <li>下载完css后，浏览器解析css并应用到DOM树上</li>
-<li>下载完成JavaScript后，留恋其解析JavaScript并执行它们</li>
+<li>下载完成JavaScript后，浏览器解析JavaScript并执行它们</li>
 </ul>
 <p>Just as a <a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="external">pipelining microprocessor</a> divides an instruction’s life cycle into multiple stages (such as “instruction fetch”, “instruction decode”, “execution”, “register write back” etc.), BigPipe breaks the page generation process into several stages:</p>
 <p>Request parsing: web server parses and sanity checks the HTTP request.<br>Data fetching: web server fetches data from storage tier.<br>Markup generation: web server generates HTML markup for the response.<br>Network transport: the response is transferred from web server to browser.<br>CSS downloading: browser downloads CSS required by the page.<br>DOM tree construction and CSS styling: browser constructs DOM tree of the document, and then applies CSS rules on it.<br>JavaScript downloading: browser downloads JavaScript resources referenced by the page.<br>JavaScript execution: browser executes JavaScript code of the page.</p>
-<p>就像一个<a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="external">流水线微处理器</a>一样，讲一个指令的生命周期分成几个状态（比如指令的fetch，指令的decode，执行，注册会写（register write back）等等），bigpipe就将页面的生成过程分成几个状态：</p>
+<p>就像一个<a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="external">流水线微处理器</a>一样，将一个指令的生命周期分成几个状态（比如指令的fetch，指令的decode，执行，注册回写（register write back）等等），bigpipe就将页面的生成过程分成几个状态：</p>
 <ul>
 <li>Request parsing：服务器解析并全面检查HTTP请求</li>
 <li>Data fetching: 服务器从数据层抓取数据</li>
