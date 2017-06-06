@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximun-scale=1.0,user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style media="screen">
+canvas{
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -75px;
+    margin-left: -75px;
+}
+</style>
+<body>
+    <canvas id="progress" width="150" height="150"></canvas>
+
+    <script>
+    const canvas = document.getElementById('progress');
+    let circleLoading;
+
+    class Progress{
+        constructor([ctx, percent, circleX, circleY, radius, lineWidth, processNum]){
+            this.ctx = ctx;
+            this.percent = percent;
+            this.circleX = circleX;
+            this.circleY = circleY;
+            this.radius = radius;
+            this.lineWidth = lineWidth;
+            this.process = processNum;
+        }
+
+        circle(cx, cy, r){
+            this.ctx.beginPath();//新建一条路径
+            this.ctx.moveTo(cx+r, cy);//制定圆环起始坐标
+            this.ctx.lineWidth = this.lineWidth;//圆环线条的宽度
+            this.ctx.strokeStyle = '#fff';//绘制轮廓的颜色
+            this.ctx.arc(cx, cy, r, Math.PI*1.5, Math.PI * 2);
+            this.ctx.closePath();//闭合路径
+            this.ctx.stroke();//然后使用线条绘制圆环轮廓
+        }
+        sector(cx, cy, r, startAngle, endAngle, anti){
+            this.ctx.beginPath();
+            this.ctx.moveTo(cx, cy+r);
+            this.ctx.lineWidth = this.lineWidth;
+            this.ctx.strokeStyle = '#66BAB7';
+            this.ctx.lineCap = 'round';
+
+            this.ctx.arc(
+                cx,
+                cy,
+                r,
+                startAngle*(Math.PI/180.0)+(Math.PI/2),
+                endAngle*(Math.PI/180.0)+(Math.PI/2),
+                anti
+            );
+            this.ctx.stroke();
+        }
+        loading(){
+            if(this.process >= 100){
+                clearInterval(circleLoading);
+            }
+
+            this.ctx.clearRect(0,0, this.circleX * 2, this.circleY * 2);//擦除之前的绘制效果，不然会产生叠加
+
+            this.circle(this.circleX, this.circleY, this.radius);
+
+            this.sector(this.circleX, this.circleY, this.radius, 0 , this.process/100*360);
+
+            // 控制结束时动画的速度
+            let res = this.process/this.percent;
+            switch (true) {
+                case (res > 0.9):
+                this.process += 0.3
+                break;
+                case (res > 0.8):
+                this.process += 0.5;
+                break;
+                case (res > 0.7):
+                this.process += 0.7;
+                break;
+                default:
+                this.process += 1;
+                break;
+            }
+        }
+    }
+
+
+
+    const start = (event) => {
+        console.log(event);
+        //判断几根手指
+        if(event.touches.length == 1){
+            event.preventDefault();
+        }
+
+        var touch = event.targetTouches[0];
+        console.log(canvas.offsetLeft, canvas.offsetTop);
+        console.log(touch.clientX, touch.clientY);
+        var disX  = touch.clientX - canvas.offsetLeft,
+        disY = touch.clientY - canvas.offsetTop;
+
+        canvas.addEventListener('touchmove', (event) => {
+            var touch = event.targetTouches[0];
+            canvas.style.left = touch.clientX - disX + 75 + 'px';
+            canvas.style.top = touch.clientY - disY + 75 + 'px';
+        });
+    }
+
+    const end = (event) => {
+        canvas.removeEventListener('touchstart', start);
+        canvas.removeEventListener('touchend', end);
+    }
+
+    canvas.addEventListener('touchstart',start);
+    canvas.addEventListener('touchend', end);
+
+    window.onload = () => {
+        let bar = new Progress([
+            canvas.getContext('2d'),
+            85,
+            canvas.width/2,
+            canvas.height/2,
+            50,
+            10,
+            0
+        ])
+        circleLoading = window.setInterval(function () {
+            bar.loading();
+        }, 20);
+    }
+    </script>
+</body>
+</html>
