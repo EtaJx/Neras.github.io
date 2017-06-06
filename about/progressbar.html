@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximun-scale=1.0,user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximun-scale=1.0,user-scalable=0">
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
@@ -52,25 +51,53 @@ canvas{
             this.ctx.lineWidth = this.lineWidth;
             this.ctx.strokeStyle = '#66BAB7';
             this.ctx.lineCap = 'round';
-
+            // console.log(endAngle);
             this.ctx.arc(
                 cx,
                 cy,
                 r,
-                startAngle*(Math.PI/180.0)+(Math.PI/2),
-                endAngle*(Math.PI/180.0)+(Math.PI/2),
+                startAngle*(Math.PI/180)+(Math.PI/2),
+                endAngle*(Math.PI/180)+(Math.PI/2),
                 anti
             );
             this.ctx.stroke();
         }
         loading(percent = this.percent, endX = 0,endY){
+            // console.log(endY);
             this.ctx.clearRect(0,0, this.circleX * 2, this.circleY * 2);//擦除之前的绘制效果，不然会产生叠加
             this.circle(this.circleX, this.circleY, this.radius);
-            let endAngleY = endY || this.process/100*360;
-            this.sector(this.circleX, this.circleY, this.radius, endX , endAngleY);
+            this.sector(this.circleX, this.circleY, this.radius, 0 , endY);
+        }
+        getDeg(x1,y1,x2,y2) {//[x1,y1]圆中心，[x2,y2]手指坐标，通过sin来算取度数
+            let x = Math.abs(x1-x2);
+            let y = Math.abs(y1-y2);
+
+            let z = Math.sqrt(x*x+y*y);
+            let rotate = Math.round( (Math.asin(y/z)/Math.PI*180) );
+
+            /**
+            * 自定义坐标
+            * 以canvas元素的中心坐标为准
+            * 从下开始画圆环，所以以左下部分为第一象限来算取度数
+            */
+            switch( true ) {
+                case (x2 <= x1 && y2>=y1):
+                    rotate = 90 - rotate;
+                break;
+                case (x2 <= x1 && y2 <= y1):
+                    rotate = 90 + rotate;
+                break;
+                case (x2 >= x1 && y2 <= y1):
+                    rotate = 180 + (90 - rotate );
+                break;
+                case (x2 >= x1 && y2 >= y1):
+                    rotate = 270 + rotate;
+                break;
+                default:break;
+            }
+            return rotate;
         }
     }
-
 
     let bar = new Progress([
         canvas.getContext('2d'),
@@ -81,7 +108,7 @@ canvas{
         10,
         1
     ]);
-    bar.loading();
+    bar.loading(undefined,undefined,10);
 
     const start = (event) => {
         console.log(event);
@@ -90,11 +117,12 @@ canvas{
             event.preventDefault();
         }
         var touch = event.targetTouches[0];
-        console.log(canvas.offsetLeft, canvas.offsetTop);
-        console.log(touch.clientX, touch.clientY);
+        var startX = touch.clientX;
+        var startY = touch.clientY;
         canvas.addEventListener('touchmove', (event) => {
             var touch = event.targetTouches[0];
-            bar.loading(undefined, undefined, touch.clientX, touch.clientY);
+            let deg = bar.getDeg(canvas.width/2+canvas.offsetLeft,canvas.height/2+canvas.offsetTop,touch.clientX,touch.clientY);
+            bar.loading(undefined, undefined, deg);
         });
     }
 
