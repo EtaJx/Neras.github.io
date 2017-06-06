@@ -45,7 +45,7 @@ canvas{
             this.ctx.closePath();//闭合路径
             this.ctx.stroke();//然后使用线条绘制圆环轮廓
         }
-        sector(cx, cy, r, startAngle, endAngle, anti){
+        sector(cx = this.cx, cy = this.cy, r = this.r, startAngle, endAngle, anti){
             this.ctx.beginPath();
             this.ctx.moveTo(cx, cy+r);
             this.ctx.lineWidth = this.lineWidth;
@@ -62,37 +62,25 @@ canvas{
             );
             this.ctx.stroke();
         }
-        loading(){
-            if(this.process >= 100){
-                clearInterval(circleLoading);
-            }
-
+        loading(percent = this.percent, endX = 0,endY){
             this.ctx.clearRect(0,0, this.circleX * 2, this.circleY * 2);//擦除之前的绘制效果，不然会产生叠加
-
             this.circle(this.circleX, this.circleY, this.radius);
-
-            this.sector(this.circleX, this.circleY, this.radius, 0 , this.process/100*360);
-
-            // 控制结束时动画的速度
-            let res = this.process/this.percent;
-            switch (true) {
-                case (res > 0.9):
-                this.process += 0.3
-                break;
-                case (res > 0.8):
-                this.process += 0.5;
-                break;
-                case (res > 0.7):
-                this.process += 0.7;
-                break;
-                default:
-                this.process += 1;
-                break;
-            }
+            let endAngleY = endY || this.process/100*360;
+            this.sector(this.circleX, this.circleY, this.radius, endX , endAngleY);
         }
     }
 
 
+    let bar = new Progress([
+        canvas.getContext('2d'),
+        60,
+        canvas.width/2,
+        canvas.height/2,
+        50,
+        10,
+        1
+    ]);
+    bar.loading();
 
     const start = (event) => {
         console.log(event);
@@ -100,17 +88,12 @@ canvas{
         if(event.touches.length == 1){
             event.preventDefault();
         }
-
         var touch = event.targetTouches[0];
         console.log(canvas.offsetLeft, canvas.offsetTop);
         console.log(touch.clientX, touch.clientY);
-        var disX  = touch.clientX - canvas.offsetLeft,
-        disY = touch.clientY - canvas.offsetTop;
-
         canvas.addEventListener('touchmove', (event) => {
             var touch = event.targetTouches[0];
-            canvas.style.left = touch.clientX - disX + 75 + 'px';
-            canvas.style.top = touch.clientY - disY + 75 + 'px';
+            bar.loading(undefined, undefined, touch.clientX, touch.clientY);
         });
     }
 
@@ -121,21 +104,6 @@ canvas{
 
     canvas.addEventListener('touchstart',start);
     canvas.addEventListener('touchend', end);
-
-    window.onload = () => {
-        let bar = new Progress([
-            canvas.getContext('2d'),
-            85,
-            canvas.width/2,
-            canvas.height/2,
-            50,
-            10,
-            0
-        ])
-        circleLoading = window.setInterval(function () {
-            bar.loading();
-        }, 20);
-    }
     </script>
 </body>
 </html>
