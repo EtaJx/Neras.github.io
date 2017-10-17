@@ -1,5 +1,5 @@
 ---
-title: webpack学习笔记（官网指南，持续更新）
+title: webpack学习笔记（官网指南，持续更新，2017/10/17）
 date: 2017-10-15 19:38:15
 tags:
 - webpack
@@ -102,4 +102,56 @@ function component(){
 }
 
 document.body.appendChild(component());
+```
+
+#### 缓存(cache)
+浏览器使用一种名为缓存的技术，可以使通过命中缓存，以降低网络流量，是网站加载速度更快，然而，再部署新版本时不更改资源的文件名，浏览器可能会认为它没有更新，就会使用它的缓存版本。通过必要的配置，以确保webpack编程生成的文件能够被客户端缓存，而在文件内容变化后，能够请求到新的文件。
+
+- 通过使用`output.filename`进行文件名替换，可以确保浏览器获取到修改后的文件。
+- `[hash]`替换可以用于在文件名中包含一个构建相关的（build-specific）的hash，更好的方式是使用`[chunkhas]`替换
+
+##### 提取模板
+`CommonsChunkPlugin`可以用于将模板分离到单独的文件中。同时它还有一个功能就是，能够在每次修改后的构建结果中，将webpack的样板(boilerplate)和manifest提取出来。
+可以将一些第三方库以这种方式提取出来，因为他们很少更改。
+可以通过使用新的`entry(入口)`起点，一级再额外配置一个`CommonsChunkPlugin`实例的组合方式来实现
+
+##### 模板标识符
+每个`module.id`会基于默认的解析顺序进行量增，即，当解析顺序发生变化，ID也会随之改变。
+- `main`bundle会随着自身的新增内容的修改，而发生变化
+- `vendor` bundle会随着自身的`module.id`的修改，而发生变化
+- `runtime` bundle会因为当前包含一个新的模块的引用，而发生变化
+
+这里期望的结果是`vendor`的hash不要变化，所以要进行修复，这里会使用到两个插件：
+1. `NameModulePlugin`，将使用模块的路径，而不是数字标识符
+2. `HashedModuleIdsPlugin`，推荐用于生产环境的构建
+
+添加本地依赖是，每次构建, `vendor`hash都保持一致。
+
+关键代码：
+```javascript
+module.exports = {
+    entry: {
+        app: './src/index.js',
+        vendor:[
+            'lodash'
+        ]
+    },
+    devtool:'inline-source-map',
+    devServer:{
+        contentBase:'./dist'//告诉服务器在dist文件夹下查找文件
+    },
+    plugins:[
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'Caching'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({//CommonChunkPlugin 的 vendor 实例，必须在 runtime 实例之前引入
+            name:'vendor'
+        }),
+        new webpack.HashedModuleIdsPlugin(),//模板标识符
+        new webpack.optimize.CommonsChunkPlugin({
+            name:'runtime'//提取模板
+        })
+    ]
+}
 ```
