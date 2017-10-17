@@ -60,14 +60,14 @@
 <meta name="description" content="啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。
 早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，点击查">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack学习笔记（官网指南，持续更新）">
+<meta property="og:title" content="webpack学习笔记（官网指南，持续更新，2017/10/17）">
 <meta property="og:url" content="http://neras.github.io/2017/10/15/webpack/index.html">
 <meta property="og:site_name" content="Hing">
 <meta property="og:description" content="啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。
 早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，点击查">
-<meta property="og:updated_time" content="2017-10-15T12:27:18.000Z">
+<meta property="og:updated_time" content="2017-10-17T15:01:03.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack学习笔记（官网指南，持续更新）">
+<meta name="twitter:title" content="webpack学习笔记（官网指南，持续更新，2017/10/17）">
 <meta name="twitter:description" content="啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。
 早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，点击查">
 
@@ -87,7 +87,7 @@
   };
 </script>
 
-  <title> webpack学习笔记（官网指南，持续更新） | Hing </title>
+  <title> webpack学习笔记（官网指南，持续更新，2017/10/17） | Hing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -208,7 +208,7 @@
             
             
               
-                webpack学习笔记（官网指南，持续更新）
+                webpack学习笔记（官网指南，持续更新，2017/10/17）
               
             
           </h1>
@@ -298,6 +298,25 @@
 <h4 id="懒加载-lazy-laod"><a href="#懒加载-lazy-laod" class="headerlink" title="懒加载(lazy-laod)"></a>懒加载(lazy-laod)</h4><p>懒加载或者按需加载这种方法实际上是先把代码在一些逻辑断点处分离开，然后在一些代码中完成某些操作后，立即引用或即将引用另外一些新的代码块。<br>在代码分离的基础上。在脚本运行的时候产生一个分离的代码块<code>lodash.bundle.js</code>，在技术概念上“懒加载”它。问题是加载这个包并不需要用户的交互–意思是每次加载页面的时候都会请求它。这样并没有用。</p>
 <p>用另一种方法：增加一个交互，当用户点击按钮的时候用console打印一些文字。但是会等到第一次交互的时候再加载那个代码块<code>print.js</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">component</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">    <span class="keyword">var</span> button = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</div><div class="line">    <span class="keyword">var</span> br = <span class="built_in">document</span>.createElement(<span class="string">'br'</span>);</div><div class="line"></div><div class="line">    button.innerHTML = <span class="string">'click me and look at the console'</span>;</div><div class="line">    element.innerHTML = _.join([<span class="string">'hello'</span>,<span class="string">'webpack'</span>], <span class="string">' '</span>);</div><div class="line">    element.appendChild(br);</div><div class="line">    element.appendChild(button);</div><div class="line"></div><div class="line">    <span class="comment">//note that because a network request is invoked, some indication</span></div><div class="line">    <span class="comment">// of loading would need to be shown in a production-level site/app.</span></div><div class="line">    button.onclick = e =&gt; <span class="keyword">import</span>(<span class="comment">/*webpackChunkName:"print"*/</span><span class="string">'./print'</span>).then(<span class="built_in">module</span> =&gt; &#123;</div><div class="line">        <span class="keyword">var</span> print = <span class="built_in">module</span>.default;</div><div class="line">        print();</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> element;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.appendChild(component());</div></pre></td></tr></table></figure>
+<h4 id="缓存-cache"><a href="#缓存-cache" class="headerlink" title="缓存(cache)"></a>缓存(cache)</h4><p>浏览器使用一种名为缓存的技术，可以使通过命中缓存，以降低网络流量，是网站加载速度更快，然而，再部署新版本时不更改资源的文件名，浏览器可能会认为它没有更新，就会使用它的缓存版本。通过必要的配置，以确保webpack编程生成的文件能够被客户端缓存，而在文件内容变化后，能够请求到新的文件。</p>
+<ul>
+<li>通过使用<code>output.filename</code>进行文件名替换，可以确保浏览器获取到修改后的文件。</li>
+<li><code>[hash]</code>替换可以用于在文件名中包含一个构建相关的（build-specific）的hash，更好的方式是使用<code>[chunkhas]</code>替换</li>
+</ul>
+<h5 id="提取模板"><a href="#提取模板" class="headerlink" title="提取模板"></a>提取模板</h5><p><code>CommonsChunkPlugin</code>可以用于将模板分离到单独的文件中。同时它还有一个功能就是，能够在每次修改后的构建结果中，将webpack的样板(boilerplate)和manifest提取出来。<br>可以将一些第三方库以这种方式提取出来，因为他们很少更改。<br>可以通过使用新的<code>entry(入口)</code>起点，一级再额外配置一个<code>CommonsChunkPlugin</code>实例的组合方式来实现</p>
+<h5 id="模板标识符"><a href="#模板标识符" class="headerlink" title="模板标识符"></a>模板标识符</h5><p>每个<code>module.id</code>会基于默认的解析顺序进行量增，即，当解析顺序发生变化，ID也会随之改变。</p>
+<ul>
+<li><code>main</code>bundle会随着自身的新增内容的修改，而发生变化</li>
+<li><code>vendor</code> bundle会随着自身的<code>module.id</code>的修改，而发生变化</li>
+<li><code>runtime</code> bundle会因为当前包含一个新的模块的引用，而发生变化</li>
+</ul>
+<p>这里期望的结果是<code>vendor</code>的hash不要变化，所以要进行修复，这里会使用到两个插件：</p>
+<ol>
+<li><code>NameModulePlugin</code>，将使用模块的路径，而不是数字标识符</li>
+<li><code>HashedModuleIdsPlugin</code>，推荐用于生产环境的构建</li>
+</ol>
+<p>添加本地依赖是，每次构建, <code>vendor</code>hash都保持一致。</p>
+<p>关键代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    entry: &#123;</div><div class="line">        app: <span class="string">'./src/index.js'</span>,</div><div class="line">        vendor:[</div><div class="line">            <span class="string">'lodash'</span></div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    devtool:<span class="string">'inline-source-map'</span>,</div><div class="line">    devServer:&#123;</div><div class="line">        contentBase:<span class="string">'./dist'</span><span class="comment">//告诉服务器在dist文件夹下查找文件</span></div><div class="line">    &#125;,</div><div class="line">    plugins:[</div><div class="line">        <span class="keyword">new</span> CleanWebpackPlugin([<span class="string">'dist'</span>]),</div><div class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">            title: <span class="string">'Caching'</span></div><div class="line">        &#125;),</div><div class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;<span class="comment">//CommonChunkPlugin 的 vendor 实例，必须在 runtime 实例之前引入</span></div><div class="line">            name:<span class="string">'vendor'</span></div><div class="line">        &#125;),</div><div class="line">        <span class="keyword">new</span> webpack.HashedModuleIdsPlugin(),<span class="comment">//模板标识符</span></div><div class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</div><div class="line">            name:<span class="string">'runtime'</span><span class="comment">//提取模板</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -347,7 +366,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/10/15/webpack/"
-           data-title="webpack学习笔记（官网指南，持续更新）" data-url="http://neras.github.io/2017/10/15/webpack/">
+           data-title="webpack学习笔记（官网指南，持续更新，2017/10/17）" data-url="http://neras.github.io/2017/10/15/webpack/">
       </div>
     
   </div>
@@ -471,7 +490,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#开发"><span class="nav-number">1.</span> <span class="nav-text">开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块热替换-HMR-Hot-Module-Replacement"><span class="nav-number">2.</span> <span class="nav-text">模块热替换(HMR , Hot Module Replacement)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产环境构建-build-production"><span class="nav-number">3.</span> <span class="nav-text">生产环境构建(build-production)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码分离-code-split"><span class="nav-number">4.</span> <span class="nav-text">代码分离(code-split)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载-lazy-laod"><span class="nav-number">5.</span> <span class="nav-text">懒加载(lazy-laod)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#开发"><span class="nav-number">1.</span> <span class="nav-text">开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块热替换-HMR-Hot-Module-Replacement"><span class="nav-number">2.</span> <span class="nav-text">模块热替换(HMR , Hot Module Replacement)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产环境构建-build-production"><span class="nav-number">3.</span> <span class="nav-text">生产环境构建(build-production)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码分离-code-split"><span class="nav-number">4.</span> <span class="nav-text">代码分离(code-split)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载-lazy-laod"><span class="nav-number">5.</span> <span class="nav-text">懒加载(lazy-laod)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存-cache"><span class="nav-number">6.</span> <span class="nav-text">缓存(cache)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#提取模板"><span class="nav-number">6.1.</span> <span class="nav-text">提取模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模板标识符"><span class="nav-number">6.2.</span> <span class="nav-text">模板标识符</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
