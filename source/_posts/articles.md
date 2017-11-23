@@ -1,5 +1,5 @@
 ---
-title: 这些时间我看过的文章
+title: 这些时间我看过的文章(2017/11/23)
 date: 2017-11-09 18:08:28
 tags:
 - articles
@@ -30,6 +30,10 @@ categories:
 20. [Getting started with Webpack: Source Maps](https://bendyworks.com/blog/getting-started-with-webpack-source-maps)
 21. [How JavaScript works: Deep dive into WebSockets and HTTP/2 with SSE + how to pick the right path](https://blog.sessionstack.com/how-javascript-works-deep-dive-into-websockets-and-http-2-with-sse-how-to-pick-the-right-path-584e6b8e3bf7)
 22. [这几年，我在video上踩的坑](https://github.com/Chimeejs/chimee-player/blob/master/doc/preface.md)
+23. [再聊移动端页面的适配](https://www.w3cplus.com/css/vw-for-layout.html)
+24. [ppk's blog](https://www.quirksmode.org/)
+25. [CSS像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)
+26. [这一次，彻底弄懂 JavaScript 执行机制](https://mp.weixin.qq.com/s/4fJN2Tfh-ByCZ3EXH1AVGw)
 
 
 
