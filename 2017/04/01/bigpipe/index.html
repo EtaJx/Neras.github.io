@@ -57,25 +57,18 @@
 
 
 
-<meta name="description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:
-
-Browser sends an HTTP request to web server.
-Web server parses the request, pulls data from storage tier then f">
+<meta name="description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:  Browser sends an HTTP request to web server. Web server parses the request, pulls data from storage tier then f">
+<meta name="keywords" content="bigpipe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bigpipe">
 <meta property="og:url" content="http://neras.github.io/2017/04/01/bigpipe/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:
-
-Browser sends an HTTP request to web server.
-Web server parses the request, pulls data from storage tier then f">
+<meta property="og:description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:  Browser sends an HTTP request to web server. Web server parses the request, pulls data from storage tier then f">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-01T08:02:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bigpipe">
-<meta name="twitter:description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:
-
-Browser sends an HTTP request to web server.
-Web server parses the request, pulls data from storage tier then f">
+<meta name="twitter:description" content="bigpipe原理小记In the traditional model, the life cycle of a user request is the following:  Browser sends an HTTP request to web server. Web server parses the request, pulls data from storage tier then f">
 
 
 
@@ -277,9 +270,9 @@ Web server parses the request, pulls data from storage tier then f">
 <li>下载完css后，浏览器解析css并应用到DOM树上</li>
 <li>下载完成JavaScript后，浏览器解析JavaScript并执行它们</li>
 </ul>
-<p>Just as a <a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="external">pipelining microprocessor</a> divides an instruction’s life cycle into multiple stages (such as “instruction fetch”, “instruction decode”, “execution”, “register write back” etc.), BigPipe breaks the page generation process into several stages:</p>
+<p>Just as a <a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="noopener">pipelining microprocessor</a> divides an instruction’s life cycle into multiple stages (such as “instruction fetch”, “instruction decode”, “execution”, “register write back” etc.), BigPipe breaks the page generation process into several stages:</p>
 <p>Request parsing: web server parses and sanity checks the HTTP request.<br>Data fetching: web server fetches data from storage tier.<br>Markup generation: web server generates HTML markup for the response.<br>Network transport: the response is transferred from web server to browser.<br>CSS downloading: browser downloads CSS required by the page.<br>DOM tree construction and CSS styling: browser constructs DOM tree of the document, and then applies CSS rules on it.<br>JavaScript downloading: browser downloads JavaScript resources referenced by the page.<br>JavaScript execution: browser executes JavaScript code of the page.</p>
-<p>就像一个<a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="external">流水线微处理器</a>一样，将一个指令的生命周期分成几个状态（比如指令的fetch，指令的decode，执行，注册回写（register write back）等等），bigpipe就将页面的生成过程分成几个状态：</p>
+<p>就像一个<a href="https://en.wikipedia.org/wiki/Instruction_pipelining" target="_blank" rel="noopener">流水线微处理器</a>一样，将一个指令的生命周期分成几个状态（比如指令的fetch，指令的decode，执行，注册回写（register write back）等等），bigpipe就将页面的生成过程分成几个状态：</p>
 <ul>
 <li>Request parsing：服务器解析并全面检查HTTP请求</li>
 <li>Data fetching: 服务器从数据层抓取数据</li>
@@ -290,7 +283,7 @@ Web server parses the request, pulls data from storage tier then f">
 <li>JavaScript downloading：浏览器下载页面引用的JavaScript 资源</li>
 <li>JavaScript execution：浏览器执行页面的JavaScript 代码。</li>
 </ul>
-<p>以上内容摘抄自<a href="https://www.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919/" target="_blank" rel="external">BigPipe: Pipelining web pages for high performance</a>，然后下面我自己翻译的。这里做个记录，算一个知识点，具体实现的话，各个语言基本都能实现。在NODEJS的实现中，个人的理解为：以前使用AJAX请求数据渲染模板，分为：全部（或者大部分）模板一次请求完成，然后请求接口获取数据，最后拼接HTML字符串进行渲染，bigpipe的话，模板部分分成了小块，最开始的请求当中只返回模板的一个简单的骨架，然后在后端获取该小块的数据后，使用<code>response.write</code>（简单实现的话）返回一段JavaScript代码来加载已经完成数据请求的模板。</p>
+<p>以上内容摘抄自<a href="https://www.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919/" target="_blank" rel="noopener">BigPipe: Pipelining web pages for high performance</a>，然后下面我自己翻译的。这里做个记录，算一个知识点，具体实现的话，各个语言基本都能实现。在NODEJS的实现中，个人的理解为：以前使用AJAX请求数据渲染模板，分为：全部（或者大部分）模板一次请求完成，然后请求接口获取数据，最后拼接HTML字符串进行渲染，bigpipe的话，模板部分分成了小块，最开始的请求当中只返回模板的一个简单的骨架，然后在后端获取该小块的数据后，使用<code>response.write</code>（简单实现的话）返回一段JavaScript代码来加载已经完成数据请求的模板。</p>
 
       
     </div>
@@ -389,7 +382,7 @@ Web server parses the request, pulls data from storage tier then f">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -490,7 +483,7 @@ Web server parses the request, pulls data from storage tier then f">
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
