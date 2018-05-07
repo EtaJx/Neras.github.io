@@ -1,6 +1,6 @@
 ---
-title: 这好像是一个关于我 
+title: 关于我
 comments: false
 layout: post
 ---
-闷骚而近妖，Hing，正在完善中。。。 
+[个人简历](http://xxhing.org/resume)

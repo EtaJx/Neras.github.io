@@ -1,10 +1,10 @@
 ---
-title: Promise的初体验 
+title: Promise的初体验
 date: 2016-08-09 23:02:22
 tag:
-- promise 
+- promise
 categories:
-- primise 
+- promise
 ---
 #### Promise是什么？
 Promise对象在不久的将来可能会是一个代理完整异步操作的值......好吧，英语确实不是很好，原话就是：
@@ -16,14 +16,14 @@ Promise对象在不久的将来可能会是一个代理完整异步操作的值.
         //the things you'll do
     },'JSON');
 ```
- 
+
 而在Promise这是把上述的操作规范化，按照统一的接口来进行编写。下面是一个简单的例子：
 ```javascript
     var promise = new Promise(function(resolve,reject){
-        //here,you can transfer the callback function resolve & reject to do what you want to do 
+        //here,you can transfer the callback function resolve & reject to do what you want to do
     });
     promise().then(function(value){
-        console.log(value); 
+        console.log(value);
     },function(error){
         console.log(error);
     });
@@ -80,8 +80,8 @@ catch()就是专门用来处理操作失败时候的函数。
        console.log(error);
     });
 ```
- 
-当然这里使用： 
+
+当然这里使用：
 ```javascript
     then(function(value){
         //TODO
@@ -92,4 +92,4 @@ catch()就是专门用来处理操作失败时候的函数。
 也是一样的效果。
 
 #### 可能是个小结
-深知自己确实比较笨，有些东西不能深刻理解就是不能运用自如，而且感觉自己的思维确实和常规的有些偏差。第一次开始学Promise，不仅是一个新的API，更是一种编程的思想。当然这篇文章也是用vim写的，感觉熟练多了，这两天断网了，还没修好，着实有点难受。 
+深知自己确实比较笨，有些东西不能深刻理解就是不能运用自如，而且感觉自己的思维确实和常规的有些偏差。第一次开始学Promise，不仅是一个新的API，更是一种编程的思想。当然这篇文章也是用vim写的，感觉熟练多了，这两天断网了，还没修好，着实有点难受。
