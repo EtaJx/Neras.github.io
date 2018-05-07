@@ -52,3 +52,4 @@ sudo sh -e ~/Downloads/crouton -r xenial -t keyboad,extension,cli-tra,audio,xorg
   ```
 
 最后重启。
+那么，到这里为止，一个基本的ubuntu子系统已经成功的装在了chrome os上面，此外还有其他工作的要做，比如安装xiwi等。弄好之后我再更新一篇。
