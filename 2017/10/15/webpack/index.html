@@ -1,0 +1,782 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/hing.jpeg?v=0.5.1" />
+
+
+
+
+
+
+<meta name="description" content="啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。 早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，点击查">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack学习笔记（官网指南，持续更新，2017&#x2F;10&#x2F;17）">
+<meta property="og:url" content="http://neras.github.io/2017/10/15/webpack/index.html">
+<meta property="og:site_name" content="Hing">
+<meta property="og:description" content="啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。 早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，点击查">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-07T06:46:28.401Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack学习笔记（官网指南，持续更新，2017&#x2F;10&#x2F;17）">
+<meta name="twitter:description" content="啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。 早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，点击查">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6226523689161065000,
+      author: '骚气的博主'
+    }
+  };
+</script>
+
+  <title> webpack学习笔记（官网指南，持续更新，2017/10/17） | Hing </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+      <img src="/images/fun.gif" alt="for fun" />
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hing</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最好的方式就是将一件事做到极致</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack学习笔记（官网指南，持续更新，2017/10/17）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-15T19:38:15+08:00" content="2017-10-15">
+              2017-10-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/10/15/webpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/15/webpack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>啰嗦一句，心情略微复杂，六月中旬的时候跳槽了，从重庆到了杭州，也算是一个全新的开始。</p>
+<p>早在之前公司做项目的时候就打算沉下心来好好看看webpack，虽然项目中一直在用，但是都是一知半解，对于很多配置和参数都说模棱两可，然后在新公司过后，项目的量和时间相对没有那么紧，所以也有更多的个人时间，所以打算好好从官网的指南开始，过一遍webpack，这里算是笔记总结。首先所有的代码都在github上，<a href="https://github.com/Neras/webpack-in" target="_blank" rel="noopener">点击查看</a>;</p>
+<h4 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h4><p>这里指的是构建开发环境，其他的都不用多说，根据<a href="https://doc.webpack-china.org/guides/development/#-webpack-dev-server" target="_blank" rel="noopener">官网的文档</a>，就能理解了。这里最开始强调了<code>source map</code>，用来更容易的追踪错误和警告，这个功能，将编译过后的代码映射回原始源代码，当然他也有很多<a href="https://doc.webpack-china.org/configuration/devtool" target="_blank" rel="noopener">配置选项</a>;<br>这里还有一个个人觉得值得关注的点，那就是<code>webpack-dev-server</code>和<code>webpab-dev-middleware</code>，再项目中我们几乎（至少在我做的项目中）都是使用<code>webpack-dev-server</code>，在官网的中文文档里，<code>webpack-in-middleware</code>也是没有翻译（或许是简单易懂），个人理解，<code>webpack-in-middleware</code>提供个了更好的扩展性，原文中也有说到</p>
+<blockquote>
+<p>This is used in <code>webpack-dev-server</code> internally, however it’s available as a separate package to allow more custom setups if desired.</p>
+</blockquote>
+<h4 id="模块热替换-HMR-Hot-Module-Replacement"><a href="#模块热替换-HMR-Hot-Module-Replacement" class="headerlink" title="模块热替换(HMR , Hot Module Replacement)"></a>模块热替换(HMR , Hot Module Replacement)</h4><p>模块热替换的特性就不再赘述，代码在<a href="https://github.com/Neras/webpack-in/tree/HMR" target="_blank" rel="noopener">这里</a>。启用HMR（Hot Module Replacement, 模块热替换）</p>
+<ol>
+<li>HMR不使用生产环境，只能在开发环境中使用</li>
+<li><strong>热替换模式中事件的重新绑定</strong></li>
+<li>热替换模式中 修改样式表</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./style.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">component</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</span><br><span class="line">    element.innerHTML = _.join([<span class="string">'Hello'</span>, <span class="string">'webpack'</span>], <span class="string">' '</span>);</span><br><span class="line"></span><br><span class="line">    btn.innerHTML = <span class="string">'Click me and check console'</span>;</span><br><span class="line">    btn.onclick = printMe;</span><br><span class="line"></span><br><span class="line">    element.appendChild(btn);</span><br><span class="line">    <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> element = component();<span class="comment">//当print.js改变导致页面重新渲染时，重新获取渲染的元素</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(component());</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">module</span>.hot)&#123;</span><br><span class="line">    <span class="built_in">module</span>.hot.accept(<span class="string">'./print.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Accepting the updated printMe module!'</span>);</span><br><span class="line">        <span class="built_in">document</span>.body.removeChild(element);</span><br><span class="line">        element = component();<span class="comment">//重新渲染页面后，component更新click时间处理</span></span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(element);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="生产环境构建-build-production"><a href="#生产环境构建-build-production" class="headerlink" title="生产环境构建(build-production)"></a>生产环境构建(build-production)</h4><ol>
+<li>在开发环境中，我们需要强大的、具有实时重新加载或者热模块替换能力的<code>source map</code>和<code>localhost server</code></li>
+<li>在生产环境中，我们的目标转向于关注更小的bundle，更轻量的<code>source map</code>，以及更优化的资源，以及改善加载时间</li>
+<li>犹豫要遵循逻辑分离，建议为每个环境比那些彼此独立的webpack配置</li>
+<li>需要有一个通用配置，实用webpack-merge工具</li>
+<li>许多library将通过与<code>process.env.NODE_ENV</code>环境变量关联，以决定library中应该引用哪些内容。使用内置DefinePlugin为所有依赖定义这个变量</li>
+<li>任何位于<code>/src</code>的本地代码都可以关联到<code>process.env.NODE_ENV</code>环境变量。</li>
+</ol>
+<h4 id="代码分离-code-split"><a href="#代码分离-code-split" class="headerlink" title="代码分离(code-split)"></a>代码分离(code-split)</h4><ul>
+<li><p>此特性能够把代码分离到不同的bundle中，然后可以按需加载或并行加载这些文件。代码分离可以用于获取更小的bundle，以及控制资源加载优先级，涉及到性能优化</p>
+</li>
+<li><p>常用的三种方法</p>
+<ol>
+<li>入口起点：使用<code>entry</code>配置手动地分离代码</li>
+<li>防止重复：使用<code>CommonChunkPlugin</code>去重和分离chunk</li>
+<li>动态导入：通过模块的内联函数调用来分离代码</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>入口起点：如果入口chunks之间包含重复的模块，那些重复模块都会被引入到各个bundle中；这种方法不够灵活，并且不能将核心应用程序逻辑进行动态拆分代码（重复引用问题，违背DRY原则）</p>
+</li>
+<li><p><code>CommonChunkPlugin</code>将公共的代码分离到单独的chunk，并从main bundle中移除，社区提供的很有帮助的插件和loaders:<code>ExtractTextPlugin</code>用于将css从主应用程序中分离；<code>bundle-loader</code>;<code>promise-loader</code>;</p>
+</li>
+<li><p>动态导入：(个人理解为这里就是以前经常听说的按需加载了)动态拆分代码时，webpack提供了两个技术。第一种，也是优先选择的方式，使用符合<strong><a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener">ECMAScript提案</a></strong>的<strong><code>import()</code>语法</strong>；第二种，则是使用webpack特定的<code>require.ensure</code></p>
+</li>
+<li><p><code>import()</code>调用使用会在内部用到<code>pormises</code>，<a href="https://doc.webpack-china.org/api/module-methods#import-" target="_blank" rel="noopener">import()文档</a></p>
+</li>
+</ul>
+<h4 id="懒加载-lazy-laod"><a href="#懒加载-lazy-laod" class="headerlink" title="懒加载(lazy-laod)"></a>懒加载(lazy-laod)</h4><p>懒加载或者按需加载这种方法实际上是先把代码在一些逻辑断点处分离开，然后在一些代码中完成某些操作后，立即引用或即将引用另外一些新的代码块。<br>在代码分离的基础上。在脚本运行的时候产生一个分离的代码块<code>lodash.bundle.js</code>，在技术概念上“懒加载”它。问题是加载这个包并不需要用户的交互–意思是每次加载页面的时候都会请求它。这样并没有用。</p>
+<p>用另一种方法：增加一个交互，当用户点击按钮的时候用console打印一些文字。但是会等到第一次交互的时候再加载那个代码块<code>print.js</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">component</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">    <span class="keyword">var</span> button = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</span><br><span class="line">    <span class="keyword">var</span> br = <span class="built_in">document</span>.createElement(<span class="string">'br'</span>);</span><br><span class="line"></span><br><span class="line">    button.innerHTML = <span class="string">'click me and look at the console'</span>;</span><br><span class="line">    element.innerHTML = _.join([<span class="string">'hello'</span>,<span class="string">'webpack'</span>], <span class="string">' '</span>);</span><br><span class="line">    element.appendChild(br);</span><br><span class="line">    element.appendChild(button);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//note that because a network request is invoked, some indication</span></span><br><span class="line">    <span class="comment">// of loading would need to be shown in a production-level site/app.</span></span><br><span class="line">    button.onclick = <span class="function"><span class="params">e</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/*webpackChunkName:"print"*/</span><span class="string">'./print'</span>).then(<span class="function"><span class="params">module</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> print = <span class="built_in">module</span>.default;</span><br><span class="line">        print();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(component());</span><br></pre></td></tr></table></figure>
+<h4 id="缓存-cache"><a href="#缓存-cache" class="headerlink" title="缓存(cache)"></a>缓存(cache)</h4><p>浏览器使用一种名为缓存的技术，可以使通过命中缓存，以降低网络流量，是网站加载速度更快，然而，再部署新版本时不更改资源的文件名，浏览器可能会认为它没有更新，就会使用它的缓存版本。通过必要的配置，以确保webpack编程生成的文件能够被客户端缓存，而在文件内容变化后，能够请求到新的文件。</p>
+<ul>
+<li>通过使用<code>output.filename</code>进行文件名替换，可以确保浏览器获取到修改后的文件。</li>
+<li><code>[hash]</code>替换可以用于在文件名中包含一个构建相关的（build-specific）的hash，更好的方式是使用<code>[chunkhas]</code>替换</li>
+</ul>
+<h5 id="提取模板"><a href="#提取模板" class="headerlink" title="提取模板"></a>提取模板</h5><p><code>CommonsChunkPlugin</code>可以用于将模板分离到单独的文件中。同时它还有一个功能就是，能够在每次修改后的构建结果中，将webpack的样板(boilerplate)和manifest提取出来。<br>可以将一些第三方库以这种方式提取出来，因为他们很少更改。<br>可以通过使用新的<code>entry(入口)</code>起点，一级再额外配置一个<code>CommonsChunkPlugin</code>实例的组合方式来实现</p>
+<h5 id="模板标识符"><a href="#模板标识符" class="headerlink" title="模板标识符"></a>模板标识符</h5><p>每个<code>module.id</code>会基于默认的解析顺序进行量增，即，当解析顺序发生变化，ID也会随之改变。</p>
+<ul>
+<li><code>main</code>bundle会随着自身的新增内容的修改，而发生变化</li>
+<li><code>vendor</code> bundle会随着自身的<code>module.id</code>的修改，而发生变化</li>
+<li><code>runtime</code> bundle会因为当前包含一个新的模块的引用，而发生变化</li>
+</ul>
+<p>这里期望的结果是<code>vendor</code>的hash不要变化，所以要进行修复，这里会使用到两个插件：</p>
+<ol>
+<li><code>NameModulePlugin</code>，将使用模块的路径，而不是数字标识符</li>
+<li><code>HashedModuleIdsPlugin</code>，推荐用于生产环境的构建</li>
+</ol>
+<p>添加本地依赖是，每次构建, <code>vendor</code>hash都保持一致。</p>
+<p>关键代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        app: <span class="string">'./src/index.js'</span>,</span><br><span class="line">        vendor:[</span><br><span class="line">            <span class="string">'lodash'</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    devtool:<span class="string">'inline-source-map'</span>,</span><br><span class="line">    devServer:&#123;</span><br><span class="line">        contentBase:<span class="string">'./dist'</span><span class="comment">//告诉服务器在dist文件夹下查找文件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin([<span class="string">'dist'</span>]),</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            title: <span class="string">'Caching'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;<span class="comment">//CommonChunkPlugin 的 vendor 实例，必须在 runtime 实例之前引入</span></span><br><span class="line">            name:<span class="string">'vendor'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> webpack.HashedModuleIdsPlugin(),<span class="comment">//模板标识符</span></span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">            name:<span class="string">'runtime'</span><span class="comment">//提取模板</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/01/bigpipe/" rel="next" title="bigpipe">
+                <i class="fa fa-chevron-left"></i> bigpipe
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/09/articles/" rel="prev" title="这些时间我看过的文章(2017/11/23)">
+                这些时间我看过的文章(2017/11/23) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/10/15/webpack/"
+           data-title="webpack学习笔记（官网指南，持续更新，2017/10/17）" data-url="http://neras.github.io/2017/10/15/webpack/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hing" />
+          <p class="site-author-name" itemprop="name">Hing</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/neras" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Joker-hing" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">基友链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://m78snail.com/" target="_blank">M78SNAIL</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://coolmogu.com/" target="_blank">一只很酷的蘑菇</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#开发"><span class="nav-number">1.</span> <span class="nav-text">开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块热替换-HMR-Hot-Module-Replacement"><span class="nav-number">2.</span> <span class="nav-text">模块热替换(HMR , Hot Module Replacement)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产环境构建-build-production"><span class="nav-number">3.</span> <span class="nav-text">生产环境构建(build-production)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码分离-code-split"><span class="nav-number">4.</span> <span class="nav-text">代码分离(code-split)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载-lazy-laod"><span class="nav-number">5.</span> <span class="nav-text">懒加载(lazy-laod)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存-cache"><span class="nav-number">6.</span> <span class="nav-text">缓存(cache)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#提取模板"><span class="nav-number">6.1.</span> <span class="nav-text">提取模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模板标识符"><span class="nav-number">6.2.</span> <span class="nav-text">模板标识符</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hing</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.1"></script>
+
+  <script type="text/javascript" src="/js/src/my.js?v=0.5.1"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.1"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Hing"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
