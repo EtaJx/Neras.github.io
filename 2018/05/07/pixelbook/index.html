@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hing">
 <meta property="og:description" content="刚入手了一台Google pixelbook，折腾了两天，总算弄好了。这里做一下总结，以防忘记。 序之前一不小心看到了google出品的chromebook，顿时无法自拔，这或许就是信仰的力量，随后淘了一个二手的chromebook pixel 2013，但是由于缺乏经验，到手之后才发现是企业邦定机，根本无法开启开发者模式，网上搜索一番发现可以通过拆机，ram放电来解决问题，但是经过一番折腾，机也">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T13:43:26.261Z">
+<meta property="og:updated_time" content="2018-05-15T07:36:49.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Pixelbook 2017折腾小记">
 <meta name="twitter:description" content="刚入手了一台Google pixelbook，折腾了两天，总算弄好了。这里做一下总结，以防忘记。 序之前一不小心看到了google出品的chromebook，顿时无法自拔，这或许就是信仰的力量，随后淘了一个二手的chromebook pixel 2013，但是由于缺乏经验，到手之后才发现是企业邦定机，根本无法开启开发者模式，网上搜索一番发现可以通过拆机，ram放电来解决问题，但是经过一番折腾，机也">
@@ -274,7 +274,7 @@
         <p>刚入手了一台Google pixelbook，折腾了两天，总算弄好了。这里做一下总结，以防忘记。</p>
 <h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>之前一不小心看到了google出品的chromebook，顿时无法自拔，这或许就是信仰的力量，随后淘了一个二手的chromebook pixel 2013，但是由于缺乏经验，到手之后才发现是企业邦定机，根本无法开启开发者模式，网上搜索一番发现可以通过拆机，ram放电来解决问题，但是经过一番折腾，机也拆了，但是我也没找到电池在哪里，不甘心，还没体验过呢，随后狠下心海淘了一台pixelbook2017,i5 8G 128G，六千软妹币，等了大半个月终于到了，开箱见面，满心欢喜。随后上手折腾，这一弄，就是两天。</p>
 <h4 id="开机激活"><a href="#开机激活" class="headerlink" title="开机激活"></a>开机激活</h4><p>首先一个梯子是必备的，就个人来说是自己买了一个vps自己搭建了ssr，所以不是什么问题，登录帐号，折腾开始。</p>
-<h4 id="进入开发者模式"><a href="#进入开发者模式" class="headerlink" title="进入开发者模式"></a>进入开发者模式</h4><p>在未开启开发者模式之前，是无法在浏览器里面使用<code>ctrl+alt+t</code>进入chrome os的终端的。开启开发者模式，按住键盘<code>esc+fresh(刷新键)+power(电源键)</code>，注意进入开发者模式的时候会清空电脑，但是我新买的本直接用的，所以不存在什么，这里设计到备份，可以另外google一下，这里就不赘述。按下组合键之后，电脑重启会提示系统损坏，这个时候按<code>ctrl+D</code>，然后重启之后会提醒关闭了验证，这个时候再次按<code>ctrl+D</code>，等待，最终进入系统，这个时候已经进入开发者模式。</p>
+<h4 id="进入开发者模式"><a href="#进入开发者模式" class="headerlink" title="进入开发者模式"></a>进入开发者模式</h4><p>在未开启开发者模式之前，是无法在浏览器里面使用<code>ctrl+alt+t</code>进入chrome os的终端的。开启开发者模式，按住键盘<code>esc+fresh(刷新键)+power(电源键)</code>，注意进入开发者模式的时候会清空电脑，但是我新买的本直接用的，所以不存在什么，这里涉及到备份，可以另外google一下，这里就不赘述。按下组合键之后，电脑重启会提示系统损坏，这个时候按<code>ctrl+D</code>，然后重启之后会提醒关闭了验证，这个时候再次按<code>ctrl+D</code>，等待，最终进入系统，这个时候已经进入开发者模式。</p>
 <h4 id="使用crouton安装ubuntu"><a href="#使用crouton安装ubuntu" class="headerlink" title="使用crouton安装ubuntu"></a>使用crouton安装ubuntu</h4><p>终于进入重头戏，使用<a href="https://github.com/dnschneid/crouton" target="_blank" rel="noopener">crouton</a>，可以查看github上的详细描述，，一定要仔细看一遍，上面讲述了使用方法。首先进入系统的shell，然后下载crouton，下载的脚本在home目录下的Downloads文件夹下面。执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -e ~/Downloads/crouton -r xenial -t keyboad,extension,cli-tra,audio,xorg,x11,unity</span><br></pre></td></tr></table></figure></p>
 <p>那么问题就来了，因为在安装ubuntu的时候，这个audio，是<a href="https://chromium.googlesource.com的资源，而且在chrome" target="_blank" rel="noopener">https://chromium.googlesource.com的资源，而且在chrome</a> os使用了代理，在这一步的时候，已经进入到chroot的ubuntu系统里面，无法使用外部的代理，通过查找，可以使用另外一台连上vpn，然后共享wifi，进行安装，但是仍然不行。但是crouton命令行可以使用<code>-P</code>参数来使用代理，但是这个时候，在更新ubuntu的时候会直接报参数错误，经过查找好象是因为dns解析问题，但是这个时候ubuntu并没有安装好，无法进入系统，这一步确实卡了好久，经过不懈努力的google，终于找到了解决方案，原来国内大佬早就修改好了crouton的脚本，<a href="https://github.com/angelfreedomv/echocrouton.proxy" target="_blank" rel="noopener">crouton.proxy</a>，将其中要修改的地方，改成自己的代理地址，ok，安装顺利。</p>
 <h4 id="ubuntu环境构建"><a href="#ubuntu环境构建" class="headerlink" title="ubuntu环境构建"></a>ubuntu环境构建</h4><ol>
