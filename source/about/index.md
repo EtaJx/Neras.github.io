@@ -1,6 +1,6 @@
 ---
-title: 关于我
+title: 星辰大海
 comments: false
 layout: post
 ---
-[个人简历](http://xxhing.org/resume)
+<center>[我的征途](http://xxhing.org/resume)</center>
