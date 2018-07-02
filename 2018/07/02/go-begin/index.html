@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="vim," />
+  <meta name="keywords" content="Go,基础," />
 
 
 
@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="vim的以一次接触废话只有一句，我只是觉得很cool，所以想学会它。 全键盘操作，想想就觉得全身舒坦。 在早些的时候使用github终端的时候一不小心接触到vim这个东西，当是不知道怎么按进去了，然后一脸蒙逼，这个啥？怎么按键盘没啥反应？现在看来，姑且原谅我那个时候的无知了。 网上流传着vim的学习曲线很陡峭，几乎呈九十度，确实有点骇人，我查看了很多教程之类的东西，开篇的时候无非都一句话，学习这玩">
-<meta name="keywords" content="vim">
+<meta name="description" content="前言初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
+<meta name="keywords" content="Go,基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim的第一次接触">
-<meta property="og:url" content="http://neras.github.io/2016/08/07/first-to-vim/index.html">
+<meta property="og:title" content="Go基础">
+<meta property="og:url" content="http://neras.github.io/2018/07/02/go-begin/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="vim的以一次接触废话只有一句，我只是觉得很cool，所以想学会它。 全键盘操作，想想就觉得全身舒坦。 在早些的时候使用github终端的时候一不小心接触到vim这个东西，当是不知道怎么按进去了，然后一脸蒙逼，这个啥？怎么按键盘没啥反应？现在看来，姑且原谅我那个时候的无知了。 网上流传着vim的学习曲线很陡峭，几乎呈九十度，确实有点骇人，我查看了很多教程之类的东西，开篇的时候无非都一句话，学习这玩">
+<meta property="og:description" content="前言初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T14:26:01.248Z">
+<meta property="og:updated_time" content="2018-07-02T15:35:57.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim的第一次接触">
-<meta name="twitter:description" content="vim的以一次接触废话只有一句，我只是觉得很cool，所以想学会它。 全键盘操作，想想就觉得全身舒坦。 在早些的时候使用github终端的时候一不小心接触到vim这个东西，当是不知道怎么按进去了，然后一脸蒙逼，这个啥？怎么按键盘没啥反应？现在看来，姑且原谅我那个时候的无知了。 网上流传着vim的学习曲线很陡峭，几乎呈九十度，确实有点骇人，我查看了很多教程之类的东西，开篇的时候无非都一句话，学习这玩">
+<meta name="twitter:title" content="Go基础">
+<meta name="twitter:description" content="前言初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> vim的第一次接触 | Hing </title>
+  <title> Go基础 | Hing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +207,7 @@
             
             
               
-                vim的第一次接触
+                Go基础
               
             
           </h1>
@@ -219,8 +219,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-07T00:22:41+08:00" content="2016-08-07">
-              2016-08-07
+            <time itemprop="dateCreated" datetime="2018-07-02T22:36:43+08:00" content="2018-07-02">
+              2018-07-02
             </time>
           </span>
 
@@ -233,8 +233,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/vim/" itemprop="url" rel="index">
-                    <span itemprop="name">vim</span>
+                  <a href="/categories/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
                   </a>
                 </span>
 
@@ -249,8 +249,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/07/first-to-vim/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/first-to-vim/" itemprop="commentsCount"></span>
+                <a href="/2018/07/02/go-begin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/02/go-begin/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -271,32 +271,47 @@
       
 
       
-        <h4 id="vim的以一次接触"><a href="#vim的以一次接触" class="headerlink" title="vim的以一次接触"></a>vim的以一次接触</h4><p>废话只有一句，我只是觉得很cool，所以想学会它。</p>
-<p>全键盘操作，想想就觉得全身舒坦。</p>
-<p>在早些的时候使用github终端的时候一不小心接触到vim这个东西，当是不知道怎么按进去了，然后一脸蒙逼，这个啥？怎么按键盘没啥反应？现在看来，姑且原谅我那个时候的无知了。</p>
-<p>网上流传着vim的学习曲线很陡峭，几乎呈九十度，确实有点骇人，我查看了很多教程之类的东西，开篇的时候无非都一句话，学习这玩意儿是很痛苦的，承受得住就是superstar，承受不住还是不要浪费时间，在第一次接触中，我已经有点体会的，来复习一下今天学到的并且记住的几个命令吧。</p>
-<ul>
-<li>:help  查看帮助</li>
-<li>hjkl 左下上右(边摸索边记住…)</li>
-<li>:w 写入，姑且这么理解吧</li>
-<li>:q 退出vim</li>
-<li>:q! 强制退出，放弃更改</li>
-<li>:wq 保存并退出</li>
-<li>:0 回到编辑内容的开头</li>
-<li>:$ 回到编辑内容的最后</li>
-<li>:a 在光标后插入(这个还真有点难以马上上手)</li>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。</p>
+<h3 id="Go的runtime"><a href="#Go的runtime" class="headerlink" title="Go的runtime"></a>Go的runtime</h3><p>Go编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责<strong><em>管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaScript的数组？)、map和反射(reflection)等等</em></strong>。总的来说<code>Go的runtime</code>是调度器和GC。</p>
+<p>（以下内容一知半解，先做好笔记）</p>
+<h4 id="Scheduler-调度器"><a href="#Scheduler-调度器" class="headerlink" title="Scheduler(调度器)"></a>Scheduler(调度器)</h4><p>Go牛逼，语言级别实现了并发，原因就在于Go有自己的scheduler。</p>
+<blockquote>
+<p>现在都有自己的信号掩码，context上下文环境以及何种控制信息等，但是Go程序本身并不context上下文切换的耗时费时费力费资源，更重要的原因是GC(垃圾回收机制)。Go的垃圾回收需要<code>stop the world</code>，所有的<code>goroutine</code>停止，才能使得内存保持在一个一直的状态。垃圾回收的时间会根据内存情况变化是不确定的，如果没有自己scheduler而是交给OS的scheduler，那么我们就会失去控制，并且会有大量的线程需要停止工作。所有Go需要自己大度的开发一个自己使用的调度器，能够自己管理goruntines，并且知道在什么时候内存状态是一致的，也就是说，对于OS而言运行时只需要为当时正在CPU核上运行的那个线程等待即可，而不是等待所有的线程。</p>
+</blockquote>
+<h4 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h4><p>Go拥有最简单却高效的<strong><em>标记-清除回收器</em></strong>(没记错的话，JavaScript也是使用的<strong><em>标记清除算法</em></strong>)，不做过多介绍，一句带过。</p>
+<h3 id="疑惑解答"><a href="#疑惑解答" class="headerlink" title="疑惑解答"></a>疑惑解答</h3><ul>
+<li>经常看<code>goroutine</code>、<code>线程</code>、<code>进程</code>。学习Go初期始终不知道<code>goroutine</code>是个啥，同时作为一个前端开发人员对于<code>线程</code>、<code>进程</code>更是一知半解，那么，Google一下吧。</li>
 </ul>
-<p>不带<code>:</code>的</p>
-<ul>
-<li>dd 删除一行</li>
-<li>x 删除当前光标所在的一个字符，后面向前删，真不知道我表清楚没有 </li>
-<li>0 回到光标说在行的开头</li>
-<li>$ 回到光标说在行的结尾</li>
-<li>dw 删除一个单词</li>
-<li>u 表示undo</li>
-<li>Ctrl+r 表示redo (这两个的精华还有待更深入的体验…)</li>
+<p>关于回答，找到一篇阮老师写的很浅显易懂的文章<a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释</a>，简单总结一下个人理解：</p>
+<ol>
+<li><p>一个CPU在同一时间只能处理一个任务，即只有一个进程 </p>
+<blockquote>
+<p>是具有一定独立功能的程序、它是系统进行资源分配和调度的一个独立单位，重点在系统调度和单独的单位，也就是说进程是可以独 立运行的一段程序。</p>
+</blockquote>
+</li>
+<li><p>一进程里面会包含多个线程，来完成这个进程</p>
+<blockquote>
+<p>线程进程的一个实体，是CPU调度和分派的基本单位，他是比进程更小的能独立运行的基本单位，线程自己基本上不拥有系统资源。</p>
+</blockquote>
+</li>
+</ol>
+<p>那么<code>goruntine</code>是什么？简单来说就是Go的协程，那么协程又是什么？这里引用一段话：</p>
+<blockquote>
+<p>对于 <strong>协程</strong>(用户级线程)，这是对内核透明的，也就是系统并不知道有协程的存在，是完全由用户自己的程序进行调度的，因为是由用户程序自己控制，那么就很难像抢占式调度那样做到强制的 CPU 控制权切换到其他进程/线程，通常只能进行 <strong>协作式调度</strong>，需要协程自己主动把控制权转让出去之后，其他协程才能被执行到。</p>
+</blockquote>
+<p>但是<code>goruntine</code>又不一样，golang语言作者Rob Pike说过，“<strong><em>Goroutine是一个与其他goroutines 并发运行在同一地址空间的Go函数或方法。一个运行的程序由一个或更多个goroutine组成。它与线程、协程、进程等不同。它是一个goroutine</em></strong>“。</p>
+<blockquote>
+<p>Golang 在 runtime、系统调用等多方面对 goroutine 调度进行了封装和处理，也就是Golang 有自己的调度器，工作方式基本上是协作式，而不是抢占式，但也不是完全的协作式调度，例如在系统调用的函数入口处会有抢占。当遇到长时间执行或者进行系统调用时，会主动把当前 goroutine 的CPU (P) 转让出去，让其他 goroutine 能被调度并执行，也就是我们为什么说 Golang 从语言层面支持了协程。<strong>简单的说就是golang自己实现了协程并叫做goruntine</strong>。</p>
+</blockquote>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>虽然有一些理论暂时无法理解，但是至少建立了一个概念。以后遇到相关的东西可以往这方面思考。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/27245377" target="_blank" rel="noopener">进程、线程、协程与goruntine</a></li>
+<li><a href="https://www.cnblogs.com/liang1101/p/7285955.html" target="_blank" rel="noopener">Golang 之协程详解</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释</a></li>
+<li><a href="https://www.zhihu.com/question/21535820/answer/22915780" target="_blank" rel="noopener">进程和线程有什么区别？</a></li>
+<li><a href="https://studygolang.com/articles/9004" target="_blank" rel="noopener">golang的垃圾回收（GC）机制</a></li>
+<li><a href="https://github.com/Unknwon/the-way-to-go_ZH_CN" target="_blank" rel="noopener">Go入门指南</a></li>
 </ul>
-<p>今天就这些，熟练的过程是相当的。。。低效率，有点相当于死记硬背的感觉的，但是还是感觉挺有趣的，这篇短小的文章就是vim写的，感觉的是相当的别扭，但是在进步就是好的。</p>
 
       
     </div>
@@ -305,7 +320,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vim/" rel="tag">#vim</a>
+            <a href="/tags/Go/" rel="tag">#Go</a>
+          
+            <a href="/tags/基础/" rel="tag">#基础</a>
           
         </div>
       
@@ -314,17 +331,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/15/SVN的浅尝辄止/" rel="next" title="SVN的浅尝辄止">
-                <i class="fa fa-chevron-left"></i> SVN的浅尝辄止
+              <a href="/2018/05/07/pixelbook/" rel="next" title="Google Pixelbook 2017折腾小记">
+                <i class="fa fa-chevron-left"></i> Google Pixelbook 2017折腾小记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/09/promise/" rel="prev" title="Promise的初体验">
-                Promise的初体验 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -349,8 +362,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/07/first-to-vim/"
-           data-title="vim的第一次接触" data-url="http://neras.github.io/2016/08/07/first-to-vim/">
+      <div class="ds-thread" data-thread-key="2018/07/02/go-begin/"
+           data-title="Go基础" data-url="http://neras.github.io/2018/07/02/go-begin/">
       </div>
     
   </div>
@@ -470,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vim的以一次接触"><span class="nav-number">1.</span> <span class="nav-text">vim的以一次接触</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go的runtime"><span class="nav-number">2.</span> <span class="nav-text">Go的runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scheduler-调度器"><span class="nav-number">2.1.</span> <span class="nav-text">Scheduler(调度器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收器"><span class="nav-number">2.2.</span> <span class="nav-text">垃圾回收器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#疑惑解答"><span class="nav-number">3.</span> <span class="nav-text">疑惑解答</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
