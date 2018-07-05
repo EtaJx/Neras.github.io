@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,duoshuo,搭建自己的博客,GitHub Pages," />
+  <meta name="keywords" content="Go," />
 
 
 
@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="本文是我如何使用hexo与github pages搭建个人博客的过程，虽然网上教程已经很多了。那这就姑且算作回顾一下吧。 使用的版本 node 4.2.2 hexo 3.1.1 Git 2.6.1  Git、Node的使用在这里就不赘述了。如何使用GitHub Pages，可以参考官方网站，仔细阅读，已经写得很详细了，特别是在新建仓库的时候，username.github.io中的username">
-<meta name="keywords" content="hexo,duoshuo,搭建自己的博客,GitHub Pages">
+<meta name="description" content="常量使用const定义，用于存储不会改变的数据。  存储在常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型。  可以省略类型说明符[type]，编译器可以根据变量的值来推断类型。  常量的值必须是在编译时就能够确定的。因为在编译期间自定义函数均属于未知，因此无法用于常量的赋值，但内置函数可以使用  数字型的常量是没有大小和符号的，并且可以使用任何精度而不会溢出。  常量允许">
+<meta name="keywords" content="Go">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用hexo与GitHub Pages搭建自己的博客">
-<meta property="og:url" content="http://neras.github.io/2016/01/27/hexo/index.html">
+<meta property="og:title" content="Go常量以及变量">
+<meta property="og:url" content="http://neras.github.io/2018/07/05/go-basic/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="本文是我如何使用hexo与github pages搭建个人博客的过程，虽然网上教程已经很多了。那这就姑且算作回顾一下吧。 使用的版本 node 4.2.2 hexo 3.1.1 Git 2.6.1  Git、Node的使用在这里就不赘述了。如何使用GitHub Pages，可以参考官方网站，仔细阅读，已经写得很详细了，特别是在新建仓库的时候，username.github.io中的username">
+<meta property="og:description" content="常量使用const定义，用于存储不会改变的数据。  存储在常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型。  可以省略类型说明符[type]，编译器可以根据变量的值来推断类型。  常量的值必须是在编译时就能够确定的。因为在编译期间自定义函数均属于未知，因此无法用于常量的赋值，但内置函数可以使用  数字型的常量是没有大小和符号的，并且可以使用任何精度而不会溢出。  常量允许">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T14:26:01.248Z">
+<meta property="og:updated_time" content="2018-07-05T14:54:49.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用hexo与GitHub Pages搭建自己的博客">
-<meta name="twitter:description" content="本文是我如何使用hexo与github pages搭建个人博客的过程，虽然网上教程已经很多了。那这就姑且算作回顾一下吧。 使用的版本 node 4.2.2 hexo 3.1.1 Git 2.6.1  Git、Node的使用在这里就不赘述了。如何使用GitHub Pages，可以参考官方网站，仔细阅读，已经写得很详细了，特别是在新建仓库的时候，username.github.io中的username">
+<meta name="twitter:title" content="Go常量以及变量">
+<meta name="twitter:description" content="常量使用const定义，用于存储不会改变的数据。  存储在常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型。  可以省略类型说明符[type]，编译器可以根据变量的值来推断类型。  常量的值必须是在编译时就能够确定的。因为在编译期间自定义函数均属于未知，因此无法用于常量的赋值，但内置函数可以使用  数字型的常量是没有大小和符号的，并且可以使用任何精度而不会溢出。  常量允许">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> 使用hexo与GitHub Pages搭建自己的博客 | Hing </title>
+  <title> Go常量以及变量 | Hing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +207,7 @@
             
             
               
-                使用hexo与GitHub Pages搭建自己的博客
+                Go常量以及变量
               
             
           </h1>
@@ -219,8 +219,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-27T21:55:37+08:00" content="2016-01-27">
-              2016-01-27
+            <time itemprop="dateCreated" datetime="2018-07-05T21:09:05+08:00" content="2018-07-05">
+              2018-07-05
             </time>
           </span>
 
@@ -233,8 +233,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
                   </a>
                 </span>
 
@@ -249,8 +249,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/27/hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/27/hexo/" itemprop="commentsCount"></span>
+                <a href="/2018/07/05/go-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/05/go-basic/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -271,19 +271,53 @@
       
 
       
-        <p>本文是我如何使用hexo与github pages搭建个人博客的过程，虽然网上教程已经很多了。那这就姑且算作回顾一下吧。</p>
-<h4 id="使用的版本"><a href="#使用的版本" class="headerlink" title="使用的版本"></a>使用的版本</h4><ul>
-<li>node 4.2.2</li>
-<li>hexo 3.1.1</li>
-<li>Git 2.6.1</li>
-</ul>
-<blockquote><p>Git、Node的使用在这里就不赘述了。如何使用GitHub Pages，可以参考官方网站，仔细阅读，已经写得很详细了，特别是在新建仓库的时候，username.github.io中的username一定要和自己的username相同，区分大小写，不要问我为什么知道的。</p>
-<footer><strong>GitHub Pages</strong><cite><a href="http://pages.github.com" target="_blank" rel="noopener">pages.github.com</a></cite></footer></blockquote>
-<h4 id="Hexo的使用"><a href="#Hexo的使用" class="headerlink" title="Hexo的使用"></a>Hexo的使用</h4><blockquote><p>关于hexo，一开始接触的时候会觉得茫然一片，不知道干啥，网上也有教程，但是搜到大部分教程已经过时，在package.json里面已经写好了依赖包，npm install的时候会安装好所需要的包，不用再单独去安装一次hexo server了，具体可以参考官方网站，文档已经写得很清楚了。</p>
-<footer><strong>HEXO</strong><cite><a href="http://hexo.io/zh-cn/docs" target="_blank" rel="noopener">hexo</a></cite></footer></blockquote>
-<h4 id="评论插件"><a href="#评论插件" class="headerlink" title="评论插件"></a>评论插件</h4><p>hexo自带的是Disqus，但是这个需要使用facebook，twitter，google+等登录，如果你没有，或者没有走到墙外面，你还可选择国内的 多说 ，我就是使用的这个，具体效果看文章最后的评论区域就知道。如何在博客中使用，这里可能有一点差异，有些主题可能已经集成了duoshuo，只需要在配置文件中开启即可，比如使用的 hexo-theme-next :<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> 有些主题没有集成，则需要去duoshuo的官网生成一段通用代码，复制到你的评论模板里面，覆盖原来的Disqus评论代码。</p>
-<h4 id="使用主题"><a href="#使用主题" class="headerlink" title="使用主题"></a>使用主题</h4><p>在使用hexo初始化一个博客之后，会有一个自带的默认主题landscape，当然，我们都是追求个性的人不是吗？虽然可以随便改这个默认主题的模板样式，但是我们需要追求更加高Big的。我使用的是比较收欢迎的next主题，上面已经给出了地址。你只需要通过git将它clone到你博客目录下的themes文件夹里面，然后在站点的配置文件里面将使用的名字改为你clone下来的next主题文件夹名字就可以了。</p>
-<p>最后我捣鼓了大半天，最后总结到一个非常重要的知识点，学习一个新的东西，官方的文档真的真的真的（重要的事情说三遍）很重要。网上博客写出来的东西，有可能只是当时博主遇到的问题，也有可能当时博主搭建博客使用的东西版本与你目前使用的版本是有差距。所以官方文档才是最正宗的。</p>
+        <h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>使用<strong>const</strong>定义，用于存储不会改变的数据。</p>
+<ol>
+<li><p>存储在常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型。</p>
+</li>
+<li><p>可以省略类型说明符<code>[type]</code>，编译器可以根据变量的值来推断类型。</p>
+</li>
+<li><p>常量的值必须是在编译时就能够确定的。因为在编译期间自定义函数均属于未知，因此无法用于常量的赋值，但内置函数可以使用</p>
+</li>
+<li><p>数字型的常量是没有大小和符号的，并且可以使用任何精度而不会溢出。</p>
+</li>
+<li><p>常量允许使用并行赋值：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> beef, two, c = <span class="string">"eat"</span>, <span class="number">2</span>, <span class="string">"veg"</span></span><br><span class="line"><span class="keyword">const</span> Monday, Tuesdat, Wednesday, Thursday, Friday, Saturday = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">  Monday, Tuesday, Wednesday = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">  Thursday, Friday, Saturday = <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常量还可以用作枚举：</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">  Unknown = <span class="number">0</span></span><br><span class="line">  Female = <span class="number">1</span></span><br><span class="line">  Male = <span class="number">2</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ol>
+<li>当变量声明后，系统自动赋予它类型的零值：int为0，float为0.0，bool为false，string为空字符串，指针为nil，所有的内存在Go中都是经过初始化的。</li>
+<li>变量的命名规则遵循驼峰命名法，如果全局变量希望能够被外部包使用，则<strong><em>需要将首个单词的首字母也大写</em></strong>。（<code>可见性原则</code>）</li>
+<li>尽管变量的标识符必须是唯一的，但你可以在某个代码块的内层代码块中使用相同名称的变量，则此时外部的同名变量将会暂时隐藏（结束内部代码块的执行后隐藏的外部同名变量又会出现，而内部同名变量则被释放），你任何的操作都只会影响内部代码块的局部变量。</li>
+</ol>
+<h3 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h3><p>根据不同的处理器以及操作系统类型，所有的字都具有32位（4字节）或64位（8字节）的相同长度；所有的字都使用相关的内存地址来表示（以十六进制数表示）。</p>
+<ol>
+<li>像int，float，boolean和string这些基本类型都属于值类型，这些类型的变量直接指向存在内存中的值。</li>
+<li><strong><em>数组和结构这些复合类型也是值类型</em></strong></li>
+<li>一个引用类型的变量r1存储的是r1的值所在的内存地址，或内存地址中第一个字所在的位置。这个内存地址被称之为指针，这个指针实际上也被存在另外的某一个字中。同一个引用类型的指针指向的多个字可以是在连续的内存地址中（内存布局是连续的）；也可以将这些字分散存放在内存中，每个字都指示了下一个字所在的内存地址</li>
+<li>在Go语言中，指针属于引用类型，其他的引用类型还包括slices，maps和channel。被引用的变量会存储在堆中，以便进行垃圾回收，且比栈拥有更大的内存空间。</li>
+</ol>
+<h3 id="简短形式，使用-赋值操作符"><a href="#简短形式，使用-赋值操作符" class="headerlink" title="简短形式，使用:=赋值操作符"></a>简短形式，使用:=赋值操作符</h3><p><strong><em>在变量的初始化时省略变量的类型而由系统自动推断</em></strong>，这个时候可以使用<code>:=</code>简写，比如</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="number">50</span> <span class="comment">// 等同于 var a = 50</span></span><br></pre></td></tr></table></figure>
+<p>这种形式只能<strong><em>被用在函数体内，而不可以用于全局变量的声明与赋值</em></strong>。</p>
+<p><strong>注意</strong>：</p>
+<ol>
+<li><p>在相同的代码块中，不可以再次对于相同名称的变量使用初始化声明。这个时候会提示错误<code>no new variables no left side of :=</code></p>
+</li>
+<li><p>如果在定义变量a前使用它，则会得到编译错误<code>undefined: a</code></p>
+</li>
+<li><p>如果声明了局部变量却没有在相同的代码块中使用它，尝试编译的时候会得到<code>a declared and not useded</code></p>
+</li>
+<li><p>全局变量允许声明但不使用</p>
+</li>
+<li><p>交换两个变量的值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b = b, a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空白标识符<code>_</code>也被用于抛弃值，如值<code>5</code>在：<code>_, b = 5, 7</code>中被抛弃</p>
+</li>
+<li><p><code>_</code>实际上是一个只写变量，不能得到它的值</p>
+</li>
+</ol>
 
       
     </div>
@@ -292,13 +326,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
-          
-            <a href="/tags/duoshuo/" rel="tag">#duoshuo</a>
-          
-            <a href="/tags/搭建自己的博客/" rel="tag">#搭建自己的博客</a>
-          
-            <a href="/tags/GitHub-Pages/" rel="tag">#GitHub Pages</a>
+            <a href="/tags/Go/" rel="tag">#Go</a>
           
         </div>
       
@@ -307,13 +335,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/02/go-begin/" rel="next" title="Go基础">
+                <i class="fa fa-chevron-left"></i> Go基础
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/29/weekly/" rel="prev" title="周报君">
-                周报君 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -338,8 +366,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/27/hexo/"
-           data-title="使用hexo与GitHub Pages搭建自己的博客" data-url="http://neras.github.io/2016/01/27/hexo/">
+      <div class="ds-thread" data-thread-key="2018/07/05/go-basic/"
+           data-title="Go常量以及变量" data-url="http://neras.github.io/2018/07/05/go-basic/">
       </div>
     
   </div>
@@ -459,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用的版本"><span class="nav-number">1.</span> <span class="nav-text">使用的版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo的使用"><span class="nav-number">2.</span> <span class="nav-text">Hexo的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评论插件"><span class="nav-number">3.</span> <span class="nav-text">评论插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用主题"><span class="nav-number">4.</span> <span class="nav-text">使用主题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#值类型和引用类型"><span class="nav-number">3.</span> <span class="nav-text">值类型和引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简短形式，使用-赋值操作符"><span class="nav-number">4.</span> <span class="nav-text">简短形式，使用:=赋值操作符</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

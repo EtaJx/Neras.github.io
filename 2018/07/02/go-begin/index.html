@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="前言初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
+<meta name="description" content="前言初探Go，做一些感觉比较重要的笔记，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
 <meta name="keywords" content="Go,基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go基础">
 <meta property="og:url" content="http://neras.github.io/2018/07/02/go-begin/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="前言初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
+<meta property="og:description" content="前言初探Go，做一些感觉比较重要的笔记，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T15:35:57.175Z">
+<meta property="og:updated_time" content="2018-07-05T15:03:39.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go基础">
-<meta name="twitter:description" content="前言初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
+<meta name="twitter:description" content="前言初探Go，做一些感觉比较重要的笔记，可能不会很深入，但至少会有一个概念。 Go的runtimeGo编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaSc">
 
 
 
@@ -271,7 +271,7 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>初探Go，做一些感觉比较重要的比较，可能不会很深入，但至少会有一个概念。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>初探Go，做一些感觉比较重要的笔记，可能不会很深入，但至少会有一个概念。</p>
 <h3 id="Go的runtime"><a href="#Go的runtime" class="headerlink" title="Go的runtime"></a>Go的runtime</h3><p>Go编译器产生的是本地可执行代码，但是这些代码仍然运行在Go的runtime（可在package runtime中找到）。这个runtime类似Java和.NET的虚拟机，它主要负责<strong><em>管理包括内存分配、垃圾回收、栈处理、goroutine、channel、切片(slice，这里嘀咕一句：类比JavaScript的数组？)、map和反射(reflection)等等</em></strong>。总的来说<code>Go的runtime</code>是调度器和GC。</p>
 <p>（以下内容一知半解，先做好笔记）</p>
 <h4 id="Scheduler-调度器"><a href="#Scheduler-调度器" class="headerlink" title="Scheduler(调度器)"></a>Scheduler(调度器)</h4><p>Go牛逼，语言级别实现了并发，原因就在于Go有自己的scheduler。</p>
@@ -338,6 +338,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/05/go-basic/" rel="prev" title="Go常量以及变量">
+                Go常量以及变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -408,7 +412,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
