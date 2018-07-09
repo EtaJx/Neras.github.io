@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="smarty," />
+  <meta name="keywords" content="Go," />
 
 
 
@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="smarty的进阶之路（可能会用到的更完了(●˘◡˘●)） smarty中的定界符恰好也是{}，在JavaScript中也是，所以在smarty中{}两边是空格的时候，将会被自动忽略解析，这种特性可以通过设置smarty的$auto_literal为false来关闭 {literal}…{/literal}可以让中间的内容忽略smarty的解析 必须使用双引号才能正常使用变量，单引号是不行的，如果">
-<meta name="keywords" content="smarty">
+<meta name="description" content="Go指针简介在Go中，不能进行指针运算，通过给予程序员基本内存布局，Go语言允许我们控制特定集合的数据结构、分配的数量以及内存访问模式，这些对构建运行良好的系统是非常重要的：指针对于性能的影响是不言而喻的。 程序在内存中存储它的值，每个内存块（或字）有一个地址，通常用十六进制数表示，Go的取地址符是&amp;amp;，放在一个变量前使用就会返回相应变量的内存地址。 123var i1 = 5fmt.Pri">
+<meta name="keywords" content="Go">
 <meta property="og:type" content="article">
-<meta property="og:title" content="smarty">
-<meta property="og:url" content="http://neras.github.io/2016/03/10/smarty/index.html">
+<meta property="og:title" content="Go指针">
+<meta property="og:url" content="http://neras.github.io/2018/07/09/go-pointer/index.html">
 <meta property="og:site_name" content="Hing">
-<meta property="og:description" content="smarty的进阶之路（可能会用到的更完了(●˘◡˘●)） smarty中的定界符恰好也是{}，在JavaScript中也是，所以在smarty中{}两边是空格的时候，将会被自动忽略解析，这种特性可以通过设置smarty的$auto_literal为false来关闭 {literal}…{/literal}可以让中间的内容忽略smarty的解析 必须使用双引号才能正常使用变量，单引号是不行的，如果">
+<meta property="og:description" content="Go指针简介在Go中，不能进行指针运算，通过给予程序员基本内存布局，Go语言允许我们控制特定集合的数据结构、分配的数量以及内存访问模式，这些对构建运行良好的系统是非常重要的：指针对于性能的影响是不言而喻的。 程序在内存中存储它的值，每个内存块（或字）有一个地址，通常用十六进制数表示，Go的取地址符是&amp;amp;，放在一个变量前使用就会返回相应变量的内存地址。 123var i1 = 5fmt.Pri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T14:26:01.249Z">
+<meta property="og:updated_time" content="2018-07-09T14:29:41.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="smarty">
-<meta name="twitter:description" content="smarty的进阶之路（可能会用到的更完了(●˘◡˘●)） smarty中的定界符恰好也是{}，在JavaScript中也是，所以在smarty中{}两边是空格的时候，将会被自动忽略解析，这种特性可以通过设置smarty的$auto_literal为false来关闭 {literal}…{/literal}可以让中间的内容忽略smarty的解析 必须使用双引号才能正常使用变量，单引号是不行的，如果">
+<meta name="twitter:title" content="Go指针">
+<meta name="twitter:description" content="Go指针简介在Go中，不能进行指针运算，通过给予程序员基本内存布局，Go语言允许我们控制特定集合的数据结构、分配的数量以及内存访问模式，这些对构建运行良好的系统是非常重要的：指针对于性能的影响是不言而喻的。 程序在内存中存储它的值，每个内存块（或字）有一个地址，通常用十六进制数表示，Go的取地址符是&amp;amp;，放在一个变量前使用就会返回相应变量的内存地址。 123var i1 = 5fmt.Pri">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> smarty | Hing </title>
+  <title> Go指针 | Hing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +207,7 @@
             
             
               
-                smarty
+                Go指针
               
             
           </h1>
@@ -219,8 +219,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-10T22:18:48+08:00" content="2016-03-10">
-              2016-03-10
+            <time itemprop="dateCreated" datetime="2018-07-09T21:48:27+08:00" content="2018-07-09">
+              2018-07-09
             </time>
           </span>
 
@@ -233,8 +233,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/smarty/" itemprop="url" rel="index">
-                    <span itemprop="name">smarty</span>
+                  <a href="/categories/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
                   </a>
                 </span>
 
@@ -249,8 +249,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/10/smarty/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/smarty/" itemprop="commentsCount"></span>
+                <a href="/2018/07/09/go-pointer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/09/go-pointer/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -271,106 +271,23 @@
       
 
       
-        <h4 id="smarty的进阶之路（可能会用到的更完了-●˘◡˘●-）"><a href="#smarty的进阶之路（可能会用到的更完了-●˘◡˘●-）" class="headerlink" title="smarty的进阶之路（可能会用到的更完了(●˘◡˘●)）"></a>smarty的进阶之路（可能会用到的更完了(●˘◡˘●)）</h4><ul>
-<li>smarty中的定界符恰好也是{}，在JavaScript中也是，所以在smarty中{}两边是空格的时候，将会被自动忽略解析，这种特性可以通过设置smarty的$auto_literal为false来关闭</li>
-<li>{literal}…{/literal}可以让中间的内容忽略smarty的解析</li>
-<li>必须使用双引号才能正常使用变量，单引号是不行的，如果在变量中存在 .则必须将该变量在双引号中庸单引号括起来</li>
-<li>页面的请求变量，例如$_GET,$POST,$_COOKIE,$_SERVER,$_ENV,$_SESSION等可以通过<br>比如通过get方法请求地址为<code>http://www.examole.com/index/?page=1</code>,$smarty.get.page其他同理:<blockquote>
-<p>$smarty.post.page,<br>$smarty.cookies.username<br>$smarty.server.SERVER_NAME<br>$smarty.env.PATH<br>$smarty.session.id<br>$smarty.request.username</p>
-</blockquote>
+        <h4 id="Go指针简介"><a href="#Go指针简介" class="headerlink" title="Go指针简介"></a>Go指针简介</h4><p>在Go中，不能进行指针运算，通过给予程序员基本内存布局，Go语言允许我们控制特定集合的数据结构、分配的数量以及内存访问模式，这些对构建运行良好的系统是非常重要的：指针对于性能的影响是不言而喻的。</p>
+<p>程序在内存中存储它的值，每个内存块（或字）有一个地址，通常用十六进制数表示，Go的取地址符是<code>&amp;</code>，放在一个变量前使用就会返回相应变量的内存地址。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i1 = <span class="number">5</span></span><br><span class="line">fmt.Printf(<span class="string">"An integer: %d, its location in memory: %p \n"</span>, i1, &amp;i1)</span><br><span class="line"><span class="comment">// 可能输出`An integer 5, its location in memory: 0x6b0820`, 这个值随每次运行程序而变化</span></span><br></pre></td></tr></table></figure>
+<p>这个地址可以存储在一个叫做指针的特殊数据类型中，在上面的代码中，这是一个指向int的指针，即<code>i1</code>:此处使用<code>*int</code>表示。如果我们想调用指针<code>intP</code>，可以这样声明：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> intP *<span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+<p>然后使用<code>intP = &amp;i1</code>是合法的，此时<code>intP</code>指向<code>i1</code>。</p>
+<p><code>intP</code>存储了<code>i1</code>的内存地址；它指向了<code>i1</code>的位置，它引用了变量<code>i1</code>。</p>
+<p><strong><em>一个指针变量可以指向任何一个值得内存地址</em></strong>，它指向那个值得的内存地址，在32位机器上占用了4个字节，在64位机器上占用8个字节，并且与它所指向的值得大小无关。理解<a href="https://github.com/Neras/golang-poker/blob/master/pointer/pointer.go" target="_blank" rel="noopener">pointer.go</a>的输出内容。</p>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li><p><strong>不能得到一个文字或常量的地址</strong></p>
 </li>
-<li><p>$smarty.now 当前的时间戳，从1970年1月1日计算到当前的秒数可以使用$smarty.now|date_format’%Y-%m-%d %H:%M:%S’来格式化显示</p>
-<blockquote>
-<p>$smarty.template返回当前的模板名称（不带目录名）;<br>$smarty.block.child 返回子模版提供的区块代码;<br>$smarty.block.parent 返回父模板提供的区块代码;</p>
-</blockquote>
+<li><p>指针的一个高级应用是可以传递一个变量的引用（如函数的参数），这样不会传递变量的拷贝。指针的传递是很廉价的，只占用4个或这个8个字节。当程序在工作中需要占用大量的内存，或很多变量，或者两者都有，使用指针会减少内存占用和提高效率。被指向的变量也保存在内存中，直到没有任何指针指向它们，所以从它们被创建开始就具有互相独立的生命周期。<strong>另一方面，由于一个指针导致的简介引用（一个进程执行另一个地址），指针的过度频繁使用也会导致性能下降</strong>。</p>
 </li>
-<li><p>变量修饰符</p>
-<blockquote>
-<p>用于变量，自定义函数或者字符串，使用的时候需要在变量后面加上|(竖线)并跟着修饰符名称<br>Smarty3存在的默认行为，在smarty2.X的版本中，需要在数组后加上@标识符来使用修饰器，例如{$articleTitle|@count}，smarty3则不再需要使用@，它会被忽略</p>
-</blockquote>
+<li><p>指针可以指向另一个指针，并且可以进行任意深度的嵌套。</p>
 </li>
-<li><p>学习到一个新的姿势啊，关于github，一个远程仓库上，如果直接clone，会拉去所有的commit，但是有可能我们并不需要，所以在拉取的时候可以添加 <code>--depth=1</code>，其中1表示最近一次的提交，即拉取最近的一次即可~</p>
-</li>
-</ul>
-<ul>
-<li><p>接着上面的</p>
-</li>
-<li><p>|count_characters计算变量内容有多少个字符</p>
-</li>
-<li><p>|default为变量设置默认值，当变量是unset或者empty的字符串时，默认值将显示。必须有一个参数<br><code>{$articleTitle|default:&#39;no title&#39;}</code></p>
-</li>
-<li><p>输出<br><code>no title</code></p>
-</li>
-<li><p>|indent 缩进每一行的字符串，默认是缩进四个空格，参数可设置缩进的空格数量，第二个可选参数设置缩进使用的字符，例如使用’\t’来代替空格缩进<br><code>{$articleTitle|indent:1:&quot;\t&quot;}</code></p>
-</li>
-</ul>
-<ul>
-<li><p>原来{ $var=…}是{assign}函数的缩写，可以在模版内对变量进行赋值<br>属性:</p>
-<blockquote>
-<p>scope 作用范围可以是：’parent’,’root’,’global’<br>nocache:对复制操作不进行缓存</p>
-</blockquote>
-</li>
-<li><p>{append}可以在运行时为数组变量增加或者创建值。<br>属性：</p>
-<blockquote>
-<p>var 赋值的变量名称<br>value 赋予的值<br>index 数组元素的新索引，如果没有此参数，则附加的值会加到数组最后<br>Scope 赋值变量的访问范围 ‘parent’,’root’,’global’</p>
-</blockquote>
-</li>
-<li><p>{assign}在调用的模版内的作用范围，在包含的模版内赋值的变量，在包含模版内可见</p>
-</li>
-<li><p>{block}可以在模板上定义一块区域进行模板继承。子模版中的{block}区域代码，将会替换父模板对应的区域代码。</p>
-</li>
-<li><p>这里不是很明白：另外，{block}可以设置车合并父子模板的相应区域。在子模版的{block}中定义append或prepend，可以使子模版附加在父模板{block}区域的后面或前面</p>
-</li>
-<li><p>在{block}内容中使用{$smarty.block.parent}，可以让父模板的区域代码放到子模版{block}内的任意位置</p>
-</li>
-<li><p>{blocks}可以嵌套使用</p>
-<blockquote>
-<p>属性：name（模板区域的名称）<br>可选属性：append，prepend，hide，nocache</p>
-</blockquote>
-</li>
-<li><p>{call}可以调用一个通过{function}标签来定义的模板函数，如同调用插件函数一样。</p>
-<blockquote>
-<p>Note:模板函数是全局定义的。因为Smarty编译器是一个单次的编译器，所以{call}标签调用的函数，无比定义在当前模板之外的位置。或者可以直接通过{funcname ….}的方式来使用该函数。<br>{call}必须设置name属性，标识要调用的模板函数的名称。<br>可以按照属性的方式来给函数传递参数。<br>属性：<br>name 模板函数的名称<br>assign 将函数的返回内容赋值到指定变量<br>[var …]传递给模板函数的默认参数</p>
-</blockquote>
-</li>
-<li><p>{capture}：可以捕获标记范围内的输出内容，存到变量中而不现显示。<br>在{capture name=’foo’}{/capture}之间的内容会被捕获到变量，变量名可以通过name属性来指定，然后拿出来显示。</p>
-</li>
-<li><p>{extends}，模板继承中，你可以在子模版内使用{extends}标签来扩展父模板。<br>{extends}必须放在模板的第一行。<br>如果子模版都需要{extends}来扩展父模板，那么它只能有{block}的区域，任何其他的模板内容都会被忽略。</p>
-</li>
-<li><p>for指定步长的循环<br>属性： max 循环的次数</p>
-</li>
-</ul>
-<p><code>&lt;ul&gt;
-{for $foo=1 to 3}
-    &lt;li&gt;{$foo}&lt;/li&gt;
-{/for&gt;
-&lt;/ul&gt;</code></p>
-<ul>
-<li><p>{foreach}{/foreach}<br>属性：@index,@iteration,@first,@last,@show,@total<br>语法命令：{break},{continue}<br>代替指定key变量，通过{$item@key}来使用循环的当前key。<br>其中@index为当前数组索引，从0开始计算<br>@iteration是当前循环的次数，从1开始计数，可以使用 is div by,is even/odd by来做一些特殊的判断</p>
-</li>
-<li><p>show属性是在{foreach}循环执行之后，检测循环是是否显示数据的判断,show是一个布尔值.</p>
-</li>
-</ul>
-<p><code>{function}
-{function name=menu level=0}
-{function menu level=0}
-    &lt;ul class=&quot;level{$level}&quot;&gt;
-        {foreach $data as $entry}
-            {if is_array($entry)}
-                &lt;li&gt;{$entry@key}&lt;/li&gt;
-                {menu data=$entry level=$level+1}
-            {else}
-                &lt;li&gt;{$entry}&lt;/li&gt;
-            {/if}
-        {/foreach}
-    &lt;/ul&gt;
-{/function}</code></p>
-<ul>
-<li><p>调用函数{menu data=$menu}</p>
-</li>
-<li><p>{if}{elseif}{/if}空变量的处理：使用默认值来代替空变量，使用default修饰器来处理</p>
-</li>
-<li><p>看完这排版，我倒吸一口凉气，怎么这么烂，markdown自以为回了其实还没仔仔细细看的看过，这里也是今后的一个学习点。</p>
+<li><p>对一个空指针的反向引用是不合法的，并且会使程序崩溃。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> p *<span class="keyword">int</span> = <span class="literal">nil</span></span><br><span class="line">  *p = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -381,7 +298,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/smarty/" rel="tag">#smarty</a>
+            <a href="/tags/Go/" rel="tag">#Go</a>
           
         </div>
       
@@ -390,17 +307,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/29/weekly/" rel="next" title="周报君">
-                <i class="fa fa-chevron-left"></i> 周报君
+              <a href="/2018/07/05/go-basic/" rel="next" title="Go常量以及变量">
+                <i class="fa fa-chevron-left"></i> Go常量以及变量
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/15/SVN的浅尝辄止/" rel="prev" title="SVN的浅尝辄止">
-                SVN的浅尝辄止 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,8 +338,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/10/smarty/"
-           data-title="smarty" data-url="http://neras.github.io/2016/03/10/smarty/">
+      <div class="ds-thread" data-thread-key="2018/07/09/go-pointer/"
+           data-title="Go指针" data-url="http://neras.github.io/2018/07/09/go-pointer/">
       </div>
     
   </div>
@@ -546,7 +459,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#smarty的进阶之路（可能会用到的更完了-●˘◡˘●-）"><span class="nav-number">1.</span> <span class="nav-text">smarty的进阶之路（可能会用到的更完了(●˘◡˘●)）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Go指针简介"><span class="nav-number">1.</span> <span class="nav-text">Go指针简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">2.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
